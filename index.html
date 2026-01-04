@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZWAY Logistics - Global Shipping & US Buying Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              // Primary - Trust & Professional
+              brand: {
+                navy: '#0f172a',   // Header, Footer, Dark Text
+                blue: '#2563eb',   // Main Buttons, Links
+                light: '#60a5fa',  // Hover effects
+              },
+              // Accent - Energy & CTA
+              accent: {
+                DEFAULT: '#f97316', // Orange CTA
+                hover: '#ea580c',
+                light: '#ffedd5',
+              },
+              // Status
+              success: '#22c55e',
+              error: '#ef4444',
+              warning: '#eab308',
+              
+              // Neutrals (Mapping to standard names for compatibility)
+              primary: '#2563eb',   // Map to Brand Blue
+              primaryDark: '#1d4ed8', 
+              secondary: '#64748b', // Slate 500
+              dark: '#0f172a',      // Map to Navy
+              surface: '#f8fafc',   // Page BG
+            },
+            boxShadow: {
+              'soft': '0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03)',
+              'card': '0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04)',
+              'glow': '0 0 20px rgba(37, 99, 235, 0.2)',
+              'glow-orange': '0 0 20px rgba(249, 115, 22, 0.2)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #1e293b; /* Slate 800 */
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-surface text-slate-800 antialiased selection:bg-brand-blue selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
