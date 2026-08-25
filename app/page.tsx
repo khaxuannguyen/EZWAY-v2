@@ -36,13 +36,15 @@ function BrandLogo({ footer = false }: { footer?: boolean }) {
 export default function Home() {
   return (
     <main className="home-page" id="top">
-      <div className="home-topbar"><div className="home-container home-topbar-inner"><a href="tel:0523666966"><Phone size={13} /> Hotline: 0523.666.966</a><a href="/tra-cuu"><Radar size={13} /> Tra cứu đơn hàng</a></div></div>
-      <header className="home-header"><div className="home-container home-nav">
-        <a href="#top" aria-label="EZWAY - Trang chủ"><BrandLogo /></a>
-        <nav className="home-desktop-nav" aria-label="Điều hướng chính"><a href="#top">Trang chủ</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#dich-vu">Dịch vụ</a><a href="#bao-gia">Giá cước</a><a href="https://ezway.vn/tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a></nav>
-        <a className="home-header-cta" href="#bao-gia">Nhận báo giá <ArrowRight size={16} /></a>
-        <details className="home-mobile-menu"><summary aria-label="Mở menu điều hướng"><Menu size={22} /></summary><nav aria-label="Điều hướng trên điện thoại"><a href="#top">Trang chủ</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#dich-vu">Dịch vụ</a><a href="#bao-gia">Giá cước</a><a href="https://ezway.vn/tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a><a className="home-mobile-hotline" href="tel:0523666966"><Phone size={16} /> 0523.666.966</a></nav></details>
-      </div></header>
+      <div className="home-site-header">
+        <div className="home-topbar"><div className="home-container home-topbar-inner"><a href="tel:0523666966"><Phone size={13} /> Hotline: 0523.666.966</a><a href="/tra-cuu"><Radar size={13} /> Tra cứu đơn hàng</a></div></div>
+        <header className="home-header"><div className="home-container home-nav">
+          <a href="#top" aria-label="EZWAY - Trang chủ"><BrandLogo /></a>
+          <nav className="home-desktop-nav" aria-label="Điều hướng chính"><a href="#top">Trang chủ</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#dich-vu">Dịch vụ</a><a href="#bao-gia">Giá cước</a><a href="https://ezway.vn/tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a></nav>
+          <a className="home-header-cta" href="#bao-gia">Nhận báo giá <ArrowRight size={16} /></a>
+          <details className="home-mobile-menu"><summary aria-label="Mở menu điều hướng"><Menu size={22} /></summary><nav aria-label="Điều hướng trên điện thoại"><a href="#top">Trang chủ</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#dich-vu">Dịch vụ</a><a href="#bao-gia">Giá cước</a><a href="https://ezway.vn/tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a><a className="home-mobile-hotline" href="tel:0523666966"><Phone size={16} /> 0523.666.966</a></nav></details>
+        </div></header>
+      </div>
 
       <section className="home-hero" aria-labelledby="home-hero-title"><div className="home-hero-orbit" aria-hidden="true" /><div className="home-container home-hero-inner">
         <p className="home-eyebrow home-eyebrow-light"><span /> VẬN CHUYỂN QUỐC TẾ TỪ VIỆT NAM</p>

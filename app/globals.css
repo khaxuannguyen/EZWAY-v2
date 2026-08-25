@@ -155,11 +155,12 @@ footer { color: #d0def0; background: var(--navy-deep); }.footer-main { padding: 
 /* EZWAY full logistics homepage */
 .home-page { min-height: 100vh; overflow-x: clip; background: #fff; }
 .home-container { width: min(1200px, calc(100% - 40px)); margin-inline: auto; }
-.home-topbar { height: 34px; color: #c9d9ed; background: #061735; font-size: 11px; font-weight: 600; }
+.home-site-header { position: sticky; z-index: 50; top: 0; }
+.home-topbar { position: relative; z-index: 2; height: 34px; color: #d8e5f4; background: #071c45; font-size: 11px; font-weight: 650; }
 .home-topbar-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.home-topbar a { display: inline-flex; align-items: center; gap: 7px; transition: color .2s ease; }
-.home-topbar a:hover { color: #fff; }
-.home-header { position: sticky; z-index: 50; top: 0; height: 82px; border-bottom: 1px solid #e4eaf1; background: rgba(255,255,255,.97); box-shadow: 0 4px 18px rgba(7,28,69,.06); }
+.home-topbar a { height: 100%; padding-inline: 4px; display: inline-flex; align-items: center; gap: 7px; transition: color .2s ease, background .2s ease; }
+.home-topbar a:hover { color: #fff; background: rgba(255,255,255,.06); }
+.home-header { position: relative; z-index: 1; height: 82px; border-bottom: 1px solid #e4eaf1; background: #fff; box-shadow: 0 5px 18px rgba(7,28,69,.08); }
 .home-nav { height: 100%; display: flex; align-items: center; }
 .home-logo { width: 190px; display: block; }
 .home-logo img { width: 100%; height: auto; display: block; }
@@ -177,7 +178,7 @@ footer { color: #d0def0; background: var(--navy-deep); }.footer-main { padding: 
 .home-mobile-menu nav a:hover { color: var(--blue); background: #f1f6fb; }
 .home-mobile-menu nav .home-mobile-hotline { margin-top: 6px; display: flex; align-items: center; gap: 8px; color: #fff; background: var(--teal); }
 
-.home-hero { position: relative; min-height: 665px; padding: 76px 0 130px; overflow: hidden; color: #fff; background: linear-gradient(125deg,#061735 0%,#073679 48%,#0877cf 100%); }
+.home-hero { position: relative; min-height: 665px; padding: 76px 0 130px; overflow: hidden; color: #fff; background: radial-gradient(ellipse at 78% 8%,rgba(16,142,232,.95) 0%,rgba(8,103,199,.72) 34%,transparent 68%),linear-gradient(112deg,#071c45 0%,#073f89 56%,#0877cf 100%); }
 .home-hero:before { content: ''; position: absolute; inset: 0; opacity: .23; background-image: linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px); background-size: 62px 62px; mask-image: linear-gradient(to bottom,transparent,#000 22%,transparent 95%); }
 .home-hero:after { content: ''; position: absolute; right: -12%; bottom: -65%; width: 720px; height: 720px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; box-shadow: 0 0 0 105px rgba(255,255,255,.025),0 0 0 210px rgba(255,255,255,.018); }
 .home-hero-orbit { position: absolute; top: -380px; left: -320px; width: 720px; height: 720px; border: 1px solid rgba(89,232,222,.16); border-radius: 50%; box-shadow: 0 0 0 110px rgba(30,177,195,.025); }
