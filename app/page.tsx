@@ -6,10 +6,10 @@ import {
 import { ConsultationForm, PurchaseRequestForm, TrackingForm } from './client-forms';
 
 const services = [
-  { icon: PlaneTakeoff, title: 'Gửi hàng quốc tế', description: 'Tư vấn phương án gửi thực phẩm khô đóng gói, quần áo, đồ dùng cá nhân, quà tặng và nhiều nhóm hàng khác từ Việt Nam.', audience: 'Phù hợp với cá nhân, gia đình và người bán hàng cần gửi đến người nhận ở nước ngoài.', details: ['Kiểm tra loại hàng và tuyến đến', 'Hỗ trợ đóng gói, khai báo', 'Tra cứu hành trình sau khi gửi'], cta: 'Nhận tư vấn tuyến gửi', href: '#bao-gia' },
-  { icon: Snowflake, title: 'Gửi hàng đông lạnh', description: 'Kiểm tra khả năng nhận theo loại hàng, quốc gia đến và điều kiện vận chuyển tại thời điểm gửi.', audience: 'Phù hợp với nhu cầu gửi thực phẩm cần bảo quản đặc biệt sau khi được EZWAY xác nhận tuyến.', details: ['Kiểm tra tuyến trước khi nhận hàng', 'Tư vấn quy cách bảo quản', 'Chỉ xác nhận khi đủ điều kiện vận chuyển'], cta: 'Gửi thông tin để kiểm tra', href: '#lien-he', note: 'Cần kiểm tra tuyến' },
-  { icon: Tags, title: 'Đóng gói & khai báo', description: 'Đóng gói, hút chân không, dán nhãn và hướng dẫn thông tin khai báo phù hợp với lô hàng.', audience: 'Phù hợp với khách chưa chắc cách chuẩn bị hàng hoặc muốn giảm rủi ro do đóng gói chưa đúng.', details: ['Kiểm tra tình trạng hàng', 'Đề xuất quy cách đóng gói', 'Hỗ trợ chuẩn bị thông tin khai báo'], cta: 'Tư vấn cách chuẩn bị', href: '#bao-gia' },
-  { icon: Boxes, title: 'Hàng cồng kềnh / theo yêu cầu', description: 'Tiếp nhận thông tin lô hàng có kích thước lớn, thiết bị hoặc yêu cầu xử lý riêng để kiểm tra phương án.', audience: 'Phù hợp với lô hàng cần đánh giá kích thước, vật liệu, chứng từ hoặc điều kiện tuyến trước khi nhận.', details: ['Đánh giá từ hình ảnh và kích thước', 'Kiểm tra yêu cầu chứng từ', 'Xác nhận phương án trước khi gửi'], cta: 'Trao đổi lô hàng', href: '#lien-he' },
+  { icon: PlaneTakeoff, image: '/ezway-service-global.jpg', imageAlt: 'Các kiện hàng được dán nhãn và chuẩn bị tại khu vực khai thác vận chuyển quốc tế', title: 'Gửi hàng quốc tế', description: 'Tư vấn phương án gửi thực phẩm khô đóng gói, quần áo, đồ dùng cá nhân, quà tặng và nhiều nhóm hàng khác từ Việt Nam.', audience: 'Phù hợp với cá nhân, gia đình và người bán hàng cần gửi đến người nhận ở nước ngoài.', details: ['Kiểm tra loại hàng và tuyến đến', 'Hỗ trợ đóng gói, khai báo', 'Tra cứu hành trình sau khi gửi'], href: '#bao-gia' },
+  { icon: Snowflake, image: '/ezway-service-frozen.jpg', imageAlt: 'Kiện hàng bảo quản lạnh với túi giữ nhiệt và gel lạnh được chuẩn bị trên bàn đóng gói', title: 'Gửi hàng đông lạnh', description: 'Kiểm tra khả năng nhận theo loại hàng, quốc gia đến và điều kiện vận chuyển tại thời điểm gửi.', audience: 'Phù hợp với nhu cầu gửi thực phẩm cần bảo quản đặc biệt sau khi được EZWAY xác nhận tuyến.', details: ['Kiểm tra tuyến trước khi nhận hàng', 'Tư vấn quy cách bảo quản', 'Chỉ xác nhận khi đủ điều kiện vận chuyển'], href: '#lien-he', note: 'Cần kiểm tra tuyến' },
+  { icon: Tags, image: '/ezway-service-packing.jpg', imageAlt: 'Nhân viên chuẩn bị giấy bảo vệ và đóng gói quần áo trong thùng carton', title: 'Đóng gói & khai báo', description: 'Đóng gói, hút chân không, dán nhãn và hướng dẫn thông tin khai báo phù hợp với lô hàng.', audience: 'Phù hợp với khách chưa chắc cách chuẩn bị hàng hoặc muốn giảm rủi ro do đóng gói chưa đúng.', details: ['Kiểm tra tình trạng hàng', 'Đề xuất quy cách đóng gói', 'Hỗ trợ chuẩn bị thông tin khai báo'], href: '#bao-gia' },
+  { icon: Boxes, image: '/ezway-service-bulky.jpg', imageAlt: 'Kiện carton cỡ lớn được gia cố và đo kích thước trước khi vận chuyển', title: 'Hàng cồng kềnh / theo yêu cầu', description: 'Tiếp nhận thông tin lô hàng có kích thước lớn, thiết bị hoặc yêu cầu xử lý riêng để kiểm tra phương án.', audience: 'Phù hợp với lô hàng cần đánh giá kích thước, vật liệu, chứng từ hoặc điều kiện tuyến trước khi nhận.', details: ['Đánh giá từ hình ảnh và kích thước', 'Kiểm tra yêu cầu chứng từ', 'Xác nhận phương án trước khi gửi'], href: '#lien-he' },
 ];
 
 const routes = [
@@ -117,23 +117,38 @@ export default function Home() {
         <p className="home-hero-route">Từ Việt Nam đi Mỹ, Úc, Canada, châu Âu và nhiều quốc gia khác.</p>
         <p className="home-hero-copy">EZWAY hỗ trợ nhận hàng, đóng gói, khai báo, theo dõi hành trình và giao tận nhà theo phương án được tư vấn trước.</p>
         <div className="home-tracking-wrap"><TrackingForm /></div>
+        <div className="home-hero-status" aria-label="Minh hoạ hành trình vận đơn">
+          <div className="home-hero-status-top"><span><Radar size={14} /> Minh hoạ hành trình</span><em>Không phải dữ liệu thực</em></div>
+          <div className="home-hero-status-meta"><strong>EZW2508260001</strong><span>Việt Nam <ArrowRight size={13} /> Canada</span></div>
+          <ol>
+            <li className="is-done"><span><Check size={11} /></span><small>Đã nhận hàng</small></li>
+            <li className="is-done"><span><Check size={11} /></span><small>Đóng gói</small></li>
+            <li className="is-done"><span><Check size={11} /></span><small>Xuất kho</small></li>
+            <li className="is-current"><span><Radar size={11} /></span><small>Đang giao</small></li>
+          </ol>
+        </div>
         <a className="home-hero-quote" href="#bao-gia">Chưa có mã? Nhận báo giá <ChevronRight size={16} /></a>
         <div className="home-trust-points" aria-label="Những hỗ trợ chính"><span><SearchCheck size={17} /> Theo dõi hành trình</span><span><Box size={17} /> Hỗ trợ đóng gói</span><span><MessageCircle size={17} /> Tư vấn trước khi gửi</span></div>
       </div></section>
 
       <section className="home-capabilities" aria-label="EZWAY hỗ trợ bạn như thế nào"><div className="home-container home-capability-grid">
-        <article><span><Globe2 size={24} /></span><div><h2>Kiểm tra đúng tuyến</h2><p>Xác nhận khả năng nhận theo quốc gia đến và loại hàng trước khi gửi.</p></div></article>
-        <article><span><FileCheck2 size={24} /></span><div><h2>Chuẩn bị rõ ràng</h2><p>Hướng dẫn thông tin người nhận, đóng gói và khai báo cần thiết.</p></div></article>
-        <article><span><Radar size={24} /></span><div><h2>Theo dõi tập trung</h2><p>Tra cứu mã EZWAY, KSN hoặc mã giao chặng cuối trên cùng một luồng.</p></div></article>
+        <article><span><Globe2 size={25} /></span><div><h2>Báo đúng tuyến, rõ cước phí</h2><p>Kiểm tra quốc gia nhận, loại hàng và cân nặng trước khi tư vấn.</p></div></article>
+        <article><span><FileCheck2 size={25} /></span><div><h2>Hỗ trợ đóng gói & hút chân không</h2><p>Chuẩn bị kiện hàng gọn, an toàn và phù hợp từng tuyến.</p></div></article>
+        <article><span><Radar size={25} /></span><div><h2>Theo dõi đơn xuyên suốt</h2><p>Tra cứu vận đơn EZWAY hoặc nhận hỗ trợ trong suốt hành trình.</p></div></article>
+      </div></section>
+
+      <section className="home-trust-strip" aria-label="Năng lực hỗ trợ của EZWAY"><div className="home-container">
+        <span><Check size={15} /> Hỗ trợ nhận hàng tại Việt Nam</span><span><Check size={15} /> Đóng gói & khai báo</span><span><Check size={15} /> Giao tận nhà theo tuyến</span><span><Check size={15} /> Tracking rõ ràng</span>
       </div></section>
 
       <section className="home-section home-services" id="dich-vu"><div className="home-container">
-        <div className="home-heading home-heading-split"><div><p className="home-eyebrow">DỊCH VỤ VẬN CHUYỂN</p><h2>Chọn đúng phương án cho lô hàng của bạn</h2></div><p>Mỗi nhóm hàng cần cách chuẩn bị khác nhau. EZWAY kiểm tra thông tin trước, sau đó mới xác nhận phương án phù hợp.</p></div>
-        <div className="home-service-grid">{services.map(({ icon: Icon, title, description, audience, details, cta, href, note }) => <article className="home-service-card" key={title}>
-          <div className="home-service-head"><span><Icon size={25} /></span>{note && <small>{note}</small>}</div><h3>{title}</h3><p>{description}</p>
+        <div className="home-heading home-heading-split"><div><p className="home-eyebrow">DỊCH VỤ VẬN CHUYỂN</p><h2>Bạn cần gửi gì? EZWAY kiểm tra tuyến phù hợp trước khi nhận hàng.</h2></div><p>Thực phẩm, đồ cá nhân, hàng đông lạnh hay mua hộ Mỹ — mỗi nhóm hàng đều cần cách chuẩn bị riêng.</p></div>
+        <div className="home-service-grid">{services.map(({ icon: Icon, image, imageAlt, title, description, audience, details, href, note }) => <article className="home-service-card" key={title}>
+          <figure className="home-service-visual"><img src={image} width="1200" height="800" loading="lazy" decoding="async" alt={imageAlt} /><figcaption><span><Icon size={24} /></span><div><small>Hình ảnh minh hoạ</small>{note && <em>{note}</em>}</div></figcaption></figure><h3>{title}</h3><p>{description}</p>
           <details><summary>Xem dịch vụ phù hợp <ChevronRight size={16} /></summary><div><p><strong>Đối tượng phù hợp:</strong> {audience}</p><ul>{details.map(item => <li key={item}><Check size={14} /> {item}</li>)}</ul></div></details>
-          <a href={href}>{cta} <ArrowRight size={16} /></a>
+          <a href={href}>Xem điều kiện gửi <ArrowRight size={16} /></a>
         </article>)}</div>
+        <div className="home-service-conversion"><div><span><MessageCircle size={22} /></span><div><h3>Gửi ảnh hàng, nhận tư vấn tuyến miễn phí</h3><p>EZWAY kiểm tra loại hàng, điểm đến và cách tính cước trước khi nhận.</p></div></div><a href="#lien-he">Gửi ảnh hàng, nhận tư vấn tuyến miễn phí <ArrowRight size={17} /></a></div>
       </div></section>
 
       <section className="home-us-buy" id="mua-ho" aria-labelledby="us-buy-title"><div className="home-container">
