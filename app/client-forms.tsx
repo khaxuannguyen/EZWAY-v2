@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useId, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { AlertCircle, Check, Clipboard, Phone, Search } from 'lucide-react';
 
 export function TrackingForm() {
@@ -34,7 +34,6 @@ type ConsultationVariant = 'quote' | 'contact';
 type FieldErrors = Partial<Record<'name' | 'phone' | 'destination' | 'item', string>>;
 
 export function ConsultationForm({ variant }: { variant: ConsultationVariant }) {
-  const prefix = useId().replace(/:/g, '');
   const [errors, setErrors] = useState<FieldErrors>({});
   const [preparedMessage, setPreparedMessage] = useState('');
   const [copyStatus, setCopyStatus] = useState('');
@@ -84,7 +83,7 @@ export function ConsultationForm({ variant }: { variant: ConsultationVariant }) 
     }
   }
 
-  const fieldId = (field: string) => `${prefix}-${variant}-${field}`;
+  const fieldId = (field: string) => `ezway-${variant}-${field}`;
   const fieldError = (field: keyof FieldErrors) => errors[field] ? <span className="home-field-error" id={`${fieldId(field)}-error`}><AlertCircle size={12} /> {errors[field]}</span> : null;
 
   return (
