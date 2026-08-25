@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { Search } from 'lucide-react';
 
 export function TrackingForm() {
   const [code, setCode] = useState('');
@@ -17,20 +18,20 @@ export function TrackingForm() {
   }
 
   return (
-    <form className="tracking-form" onSubmit={submit}>
-      <label htmlFor="tracking-code">Mã vận đơn</label>
-      <div>
+    <form className="hero-tracking-form" onSubmit={submit}>
+      <label className="sr-only" htmlFor="tracking-code">Mã vận đơn</label>
+      <div className="tracking-input-row">
+        <Search size={21} aria-hidden="true" />
         <input
           id="tracking-code"
           value={code}
           onChange={(event) => setCode(event.target.value)}
-          placeholder="Ví dụ: EZW24081234"
+          placeholder="Nhập mã tracking của bạn..."
           autoComplete="off"
           required
         />
-        <button type="submit">Tra cứu <span>→</span></button>
+        <button type="submit">Tra cứu</button>
       </div>
-      <small>Dữ liệu được tra cứu trên hệ thống hiện tại của EZWAY.</small>
     </form>
   );
 }
@@ -51,7 +52,7 @@ export function QuoteForm() {
 
     setSent(true);
     window.open(
-      `https://wa.me/84378899543?text=${encodeURIComponent(message)}`,
+      `https://wa.me/84523666966?text=${encodeURIComponent(message)}`,
       '_blank',
       'noopener,noreferrer',
     );
@@ -80,7 +81,7 @@ export function QuoteForm() {
         <label htmlFor="contact">Số điện thoại / Zalo</label>
         <input id="contact" name="contact" inputMode="tel" placeholder="Số để EZWAY liên hệ lại" required />
       </div>
-      <button className="button quote-submit" type="submit">Gửi yêu cầu qua WhatsApp <span>↗</span></button>
+      <button className="quote-submit" type="submit">Gửi yêu cầu qua WhatsApp <span>↗</span></button>
       <p className="form-note" role="status">
         {sent ? 'Yêu cầu đã được tạo. Hãy gửi tin nhắn trong cửa sổ WhatsApp vừa mở.' : 'Không cần thanh toán. EZWAY sẽ tư vấn tuyến phù hợp trước.'}
       </p>
