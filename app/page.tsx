@@ -139,6 +139,7 @@ export default function Home() {
       <section className="home-us-buy" id="mua-ho" aria-labelledby="us-buy-title"><div className="home-container">
         <div className="home-us-buy-grid">
           <div className="home-us-buy-copy"><div className="home-us-flag"><span aria-hidden="true">🇺🇸</span><strong>DỊCH VỤ RIÊNG · MỸ → VIỆT NAM</strong></div><p className="home-eyebrow home-eyebrow-light">MUA HỘ HÀNG MỸ</p><h2 id="us-buy-title">Bạn chọn món.<br />EZWAY hỗ trợ đặt mua và đưa hàng về Việt Nam.</h2><p>Dành riêng cho khách muốn mua tại website Mỹ nhưng cần hỗ trợ thanh toán, nhận hàng tại Mỹ và vận chuyển về Việt Nam. Khả năng mua được kiểm tra theo từng website và loại sản phẩm.</p>
+            <figure className="home-us-photo"><img src="/ezway-us-shopping.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Minh hoạ kiện hàng mua hộ gồm giày, quần áo và sản phẩm chăm sóc được chuẩn bị tại kho" /><figcaption><span>HÀNG MUA HỘ</span><small>Hình ảnh minh hoạ</small></figcaption></figure>
             <div className="home-us-benefits"><span><ShoppingBag size={18} /><strong>Gửi đúng link & thuộc tính</strong></span><span><ClipboardCheck size={18} /><strong>Xác nhận chi phí trước khi mua</strong></span><span><Radar size={18} /><strong>Theo dõi hành trình về Việt Nam</strong></span></div>
             <a className="home-us-call" href="tel:0523666966"><Phone size={18} /><span><small>CẦN HỎI NHANH?</small><strong>0523.666.966</strong></span></a>
           </div>
@@ -152,6 +153,14 @@ export default function Home() {
       <section className="home-section home-routes" aria-labelledby="routes-title"><div className="home-container">
         <div className="home-heading home-heading-centered"><p className="home-eyebrow">TUYẾN VẬN CHUYỂN</p><h2 id="routes-title">Các điểm đến đang được tư vấn</h2><p>Thời gian, chi phí và khả năng nhận hàng được xác nhận riêng theo từng lô hàng — không áp dụng một cam kết chung cho mọi tuyến.</p></div>
         <div className="home-route-grid">{routes.map(route => <article key={route.name}><span className="home-flag" aria-hidden="true">{route.flag}</span><h3>{route.name}</h3><p>{route.copy}</p><a href="#bao-gia">Xem giá cước <ChevronRight size={15} /></a></article>)}</div>
+      </div></section>
+
+      <section className="home-operations" aria-labelledby="operations-title"><div className="home-container">
+        <div className="home-heading home-heading-split"><div><p className="home-eyebrow">HÀNH TRÌNH KIỆN HÀNG</p><h2 id="operations-title">Hình dung rõ hơn về khâu chuẩn bị và vận chuyển</h2></div><p>Hàng hóa cần được kiểm tra, bảo vệ và sắp xếp phù hợp trước khi đi vào tuyến vận chuyển. Các hình dưới đây minh hoạ những công đoạn khách hàng thường quan tâm.</p></div>
+        <div className="home-operations-grid">
+          <figure className="home-operation-main"><img src="/ezway-air-cargo.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Minh hoạ các kiện hàng trên pallet tại khu vực khai thác hàng không" /><figcaption><div><small>HÌNH ẢNH MINH HOẠ</small><h3>Từ kho đến tuyến vận chuyển</h3><p>Kiện hàng được sắp xếp và chuẩn bị trước khi bàn giao cho chặng vận chuyển tiếp theo.</p></div><span><PlaneTakeoff size={21} /></span></figcaption></figure>
+          <figure className="home-operation-side"><img src="/ezway-packing-care.webp" width="1456" height="1092" loading="lazy" decoding="async" alt="Minh hoạ nhân viên sử dụng giấy bảo vệ để đóng gói quần áo trong thùng carton" /><figcaption><div><small>HÌNH ẢNH MINH HOẠ</small><h3>Đóng gói theo đặc điểm hàng</h3><p>Quy cách bảo vệ được tư vấn theo loại hàng và điều kiện của tuyến gửi.</p></div><span><Box size={21} /></span></figcaption></figure>
+        </div>
       </div></section>
 
       <section className="home-section home-process" aria-labelledby="process-title"><div className="home-container">
