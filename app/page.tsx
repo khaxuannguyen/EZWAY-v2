@@ -3,12 +3,11 @@ import {
   ExternalLink, FileCheck2, Globe2, MapPin, Menu, MessageCircle, PackageCheck,
   Newspaper, Phone, PlaneTakeoff, Radar, SearchCheck, ShieldAlert, ShoppingBag, Snowflake, Tags,
 } from 'lucide-react';
-import { ConsultationForm, TrackingForm } from './client-forms';
+import { ConsultationForm, PurchaseRequestForm, TrackingForm } from './client-forms';
 
 const services = [
   { icon: PlaneTakeoff, title: 'Gửi hàng quốc tế', description: 'Tư vấn phương án gửi thực phẩm khô đóng gói, quần áo, đồ dùng cá nhân, quà tặng và nhiều nhóm hàng khác từ Việt Nam.', audience: 'Phù hợp với cá nhân, gia đình và người bán hàng cần gửi đến người nhận ở nước ngoài.', details: ['Kiểm tra loại hàng và tuyến đến', 'Hỗ trợ đóng gói, khai báo', 'Tra cứu hành trình sau khi gửi'], cta: 'Nhận tư vấn tuyến gửi', href: '#bao-gia' },
   { icon: Snowflake, title: 'Gửi hàng đông lạnh', description: 'Kiểm tra khả năng nhận theo loại hàng, quốc gia đến và điều kiện vận chuyển tại thời điểm gửi.', audience: 'Phù hợp với nhu cầu gửi thực phẩm cần bảo quản đặc biệt sau khi được EZWAY xác nhận tuyến.', details: ['Kiểm tra tuyến trước khi nhận hàng', 'Tư vấn quy cách bảo quản', 'Chỉ xác nhận khi đủ điều kiện vận chuyển'], cta: 'Gửi thông tin để kiểm tra', href: '#lien-he', note: 'Cần kiểm tra tuyến' },
-  { icon: ShoppingBag, title: 'Mua hộ hàng Mỹ', description: 'Hỗ trợ đặt hàng tại các website Mỹ như Amazon, eBay, Costco và vận chuyển về Việt Nam theo nhu cầu.', audience: 'Phù hợp khi bạn chưa có phương thức thanh toán, địa chỉ nhận tại Mỹ hoặc cần hỗ trợ gom kiện.', details: ['Tư vấn trước khi đặt mua', 'Nhận hàng tại kho Mỹ', 'Gom kiện theo yêu cầu phù hợp'], cta: 'Tư vấn mua hộ', href: '#bao-gia', id: 'mua-ho' },
   { icon: Tags, title: 'Đóng gói & khai báo', description: 'Đóng gói, hút chân không, dán nhãn và hướng dẫn thông tin khai báo phù hợp với lô hàng.', audience: 'Phù hợp với khách chưa chắc cách chuẩn bị hàng hoặc muốn giảm rủi ro do đóng gói chưa đúng.', details: ['Kiểm tra tình trạng hàng', 'Đề xuất quy cách đóng gói', 'Hỗ trợ chuẩn bị thông tin khai báo'], cta: 'Tư vấn cách chuẩn bị', href: '#bao-gia' },
   { icon: Boxes, title: 'Hàng cồng kềnh / theo yêu cầu', description: 'Tiếp nhận thông tin lô hàng có kích thước lớn, thiết bị hoặc yêu cầu xử lý riêng để kiểm tra phương án.', audience: 'Phù hợp với lô hàng cần đánh giá kích thước, vật liệu, chứng từ hoặc điều kiện tuyến trước khi nhận.', details: ['Đánh giá từ hình ảnh và kích thước', 'Kiểm tra yêu cầu chứng từ', 'Xác nhận phương án trước khi gửi'], cta: 'Trao đổi lô hàng', href: '#lien-he' },
 ];
@@ -27,6 +26,13 @@ const process = [
   { icon: Box, title: 'Kiểm tra, đóng gói, báo cước', copy: 'EZWAY kiểm tra điều kiện nhận, tư vấn đóng gói và xác nhận chi phí.' },
   { icon: Radar, title: 'Vận chuyển & theo dõi', copy: 'Lô hàng được bàn giao vận chuyển và cập nhật hành trình tra cứu.' },
   { icon: PackageCheck, title: 'Giao tận tay người nhận', copy: 'Theo dõi đến trạng thái giao cuối cùng hoặc hỗ trợ khi cần làm rõ.' },
+];
+
+const usBuyingSteps = [
+  { title: 'Gửi link sản phẩm', copy: 'Dán link website Mỹ và ghi rõ số lượng, màu sắc, kích thước hoặc phiên bản cần mua.' },
+  { title: 'Kiểm tra & báo giá', copy: 'EZWAY kiểm tra thông tin sản phẩm và phản hồi các khoản chi phí dự kiến trước khi đặt.' },
+  { title: 'Xác nhận đặt mua', copy: 'Bạn xác nhận sản phẩm và phương án thanh toán theo báo giá; EZWAY tiến hành đặt hàng.' },
+  { title: 'Nhận tại kho Mỹ & gửi về Việt Nam', copy: 'Khi người bán giao tới kho, đơn tiếp tục theo phương án vận chuyển đã được xác nhận.' },
 ];
 
 const newsArticles = [
@@ -122,12 +128,25 @@ export default function Home() {
       </div></section>
 
       <section className="home-section home-services" id="dich-vu"><div className="home-container">
-        <div className="home-heading home-heading-split"><div><p className="home-eyebrow">DỊCH VỤ EZWAY</p><h2>Chọn đúng dịch vụ cho lô hàng của bạn</h2></div><p>Mỗi nhóm hàng cần cách chuẩn bị khác nhau. EZWAY kiểm tra thông tin trước, sau đó mới xác nhận phương án phù hợp.</p></div>
-        <div className="home-service-grid">{services.map(({ icon: Icon, title, description, audience, details, cta, href, note, id }) => <article className="home-service-card" key={title} id={id}>
+        <div className="home-heading home-heading-split"><div><p className="home-eyebrow">DỊCH VỤ VẬN CHUYỂN</p><h2>Chọn đúng phương án cho lô hàng của bạn</h2></div><p>Mỗi nhóm hàng cần cách chuẩn bị khác nhau. EZWAY kiểm tra thông tin trước, sau đó mới xác nhận phương án phù hợp.</p></div>
+        <div className="home-service-grid">{services.map(({ icon: Icon, title, description, audience, details, cta, href, note }) => <article className="home-service-card" key={title}>
           <div className="home-service-head"><span><Icon size={25} /></span>{note && <small>{note}</small>}</div><h3>{title}</h3><p>{description}</p>
           <details><summary>Xem dịch vụ phù hợp <ChevronRight size={16} /></summary><div><p><strong>Đối tượng phù hợp:</strong> {audience}</p><ul>{details.map(item => <li key={item}><Check size={14} /> {item}</li>)}</ul></div></details>
           <a href={href}>{cta} <ArrowRight size={16} /></a>
         </article>)}</div>
+      </div></section>
+
+      <section className="home-us-buy" id="mua-ho" aria-labelledby="us-buy-title"><div className="home-container">
+        <div className="home-us-buy-grid">
+          <div className="home-us-buy-copy"><div className="home-us-flag"><span aria-hidden="true">🇺🇸</span><strong>DỊCH VỤ RIÊNG · MỸ → VIỆT NAM</strong></div><p className="home-eyebrow home-eyebrow-light">MUA HỘ HÀNG MỸ</p><h2 id="us-buy-title">Bạn chọn món.<br />EZWAY hỗ trợ đặt mua và đưa hàng về Việt Nam.</h2><p>Dành riêng cho khách muốn mua tại website Mỹ nhưng cần hỗ trợ thanh toán, nhận hàng tại Mỹ và vận chuyển về Việt Nam. Khả năng mua được kiểm tra theo từng website và loại sản phẩm.</p>
+            <div className="home-us-benefits"><span><ShoppingBag size={18} /><strong>Gửi đúng link & thuộc tính</strong></span><span><ClipboardCheck size={18} /><strong>Xác nhận chi phí trước khi mua</strong></span><span><Radar size={18} /><strong>Theo dõi hành trình về Việt Nam</strong></span></div>
+            <a className="home-us-call" href="tel:0523666966"><Phone size={18} /><span><small>CẦN HỎI NHANH?</small><strong>0523.666.966</strong></span></a>
+          </div>
+          <div className="home-us-form-card" id="mua-ho-form"><div className="home-us-form-head"><div><p>GỬI LINK NHẬN BÁO GIÁ</p><h3>Sản phẩm bạn muốn mua</h3></div><span><ShoppingBag size={23} /></span></div><PurchaseRequestForm /></div>
+        </div>
+        <div className="home-us-platforms"><p>CÓ THỂ GỬI LINK TỪ CÁC WEBSITE MỸ PHỔ BIẾN</p><div><span>amazon</span><span>eBay</span><span>Walmart</span><span>Costco</span><span>Target</span><span>Best Buy</span></div><small>Các thương hiệu thuộc sở hữu của đơn vị tương ứng. EZWAY không tuyên bố là đối tác chính thức.</small></div>
+        <div className="home-us-process"><div className="home-us-process-heading"><p>QUY TRÌNH MUA HỘ</p><h3>Từ đường link đến kiện hàng tại Việt Nam</h3></div><ol>{usBuyingSteps.map((step, index) => <li key={step.title}><span>{String(index + 1).padStart(2, '0')}</span><div><h4>{step.title}</h4><p>{step.copy}</p></div></li>)}</ol></div>
+        <div className="home-us-cost"><div><p>CHI PHÍ ĐƯỢC TÁCH RÕ</p><h3>Một báo giá có thể gồm</h3></div><div className="home-us-cost-formula"><span>Giá sản phẩm</span><b>+</b><span>Thuế & ship nội địa Mỹ<br /><small>nếu có</small></span><b>+</b><span>Phí dịch vụ mua hộ</span><b>+</b><span>Cước Mỹ → Việt Nam</span></div><p>Không tự áp mức phí hoặc tỷ giá mẫu. EZWAY sẽ xác nhận từng khoản cho đúng đơn hàng trước khi bạn quyết định mua.</p></div>
       </div></section>
 
       <section className="home-section home-routes" aria-labelledby="routes-title"><div className="home-container">
@@ -165,7 +184,7 @@ export default function Home() {
 
       <section className="home-section home-faq" aria-labelledby="faq-title"><div className="home-container home-faq-grid">
         <div className="home-heading"><p className="home-eyebrow">CÂU HỎI THƯỜNG GẶP</p><h2 id="faq-title">Trước khi gửi, bạn có thể muốn biết</h2><p>Nếu loại hàng hoặc điểm đến chưa có trong câu trả lời, hãy gửi thông tin để EZWAY kiểm tra riêng.</p><a href="tel:0523666966"><Phone size={16} /> Gọi 0523.666.966</a></div>
-        <div className="home-faq-list"><details><summary>EZWAY nhận gửi đi những nước nào?<span>+</span></summary><p>Các tuyến đang được giới thiệu gồm Mỹ, Úc, Canada, các nước châu Âu và Anh. Với quốc gia khác, EZWAY cần kiểm tra điểm đến và loại hàng trước khi xác nhận.</p></details><details><summary>Chưa biết cân nặng có báo giá được không?<span>+</span></summary><p>Có thể gửi kích thước ước tính, danh sách hàng hoặc hình ảnh trước. Cân nặng và kích thước thực tế sẽ được xác nhận khi kiểm tra hàng.</p></details><details><summary>Hàng điện tử hoặc hàng cồng kềnh có gửi được không?<span>+</span></summary><p>Cần kiểm tra loại thiết bị, pin, kích thước, quốc gia đến và chứng từ liên quan. EZWAY chỉ xác nhận sau khi có đủ thông tin cần thiết.</p></details><details><summary>Tôi tra cứu hành trình ở đâu?<span>+</span></summary><p>Nhập mã vận đơn, mã KSN hoặc mã giao chặng cuối tại ô tra cứu đầu trang hoặc vào trang “Tra cứu đơn hàng”.</p></details><details><summary>Thời gian giao phụ thuộc vào những yếu tố nào?<span>+</span></summary><p>Thời gian có thể thay đổi theo tuyến, lịch vận chuyển, khâu khai báo, kiểm tra hải quan, điều kiện giao chặng cuối và thông tin người nhận.</p></details></div>
+        <div className="home-faq-list"><details><summary>EZWAY nhận gửi đi những nước nào?<span>+</span></summary><p>Các tuyến đang được giới thiệu gồm Mỹ, Úc, Canada, các nước châu Âu và Anh. Với quốc gia khác, EZWAY cần kiểm tra điểm đến và loại hàng trước khi xác nhận.</p></details><details><summary>Mua hộ hàng Mỹ bắt đầu từ đâu?<span>+</span></summary><p>Bạn dán link sản phẩm vào form “Mua hộ hàng Mỹ”, ghi rõ số lượng và thuộc tính cần mua. EZWAY sẽ kiểm tra thông tin trước khi xác nhận báo giá và đặt hàng.</p></details><details><summary>Chi phí mua hộ hàng Mỹ gồm những gì?<span>+</span></summary><p>Tùy đơn hàng, báo giá có thể gồm giá sản phẩm, thuế hoặc ship nội địa Mỹ nếu có, phí dịch vụ mua hộ và cước vận chuyển Mỹ – Việt Nam. Từng khoản được xác nhận theo đơn thực tế.</p></details><details><summary>Chưa biết cân nặng có báo giá được không?<span>+</span></summary><p>Có thể gửi kích thước ước tính, danh sách hàng hoặc hình ảnh trước. Cân nặng và kích thước thực tế sẽ được xác nhận khi kiểm tra hàng.</p></details><details><summary>Hàng điện tử hoặc hàng cồng kềnh có gửi được không?<span>+</span></summary><p>Cần kiểm tra loại thiết bị, pin, kích thước, quốc gia đến và chứng từ liên quan. EZWAY chỉ xác nhận sau khi có đủ thông tin cần thiết.</p></details><details><summary>Tôi tra cứu hành trình ở đâu?<span>+</span></summary><p>Nhập mã vận đơn, mã KSN hoặc mã giao chặng cuối tại ô tra cứu đầu trang hoặc vào trang “Tra cứu đơn hàng”.</p></details><details><summary>Thời gian giao phụ thuộc vào những yếu tố nào?<span>+</span></summary><p>Thời gian có thể thay đổi theo tuyến, lịch vận chuyển, khâu khai báo, kiểm tra hải quan, điều kiện giao chặng cuối và thông tin người nhận.</p></details></div>
       </div></section>
 
       <section className="home-section home-contact" id="lien-he" aria-labelledby="contact-title"><div className="home-container home-contact-grid">
