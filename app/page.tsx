@@ -75,7 +75,7 @@ export default function Home() {
             <a href="#lien-he">Liên hệ</a>
           </nav>
           <a className="header-hotline-cta" href="tel:0523666966">Hotline: 0523.666.966</a>
-          <a className="header-track" href="#tracking">Tra cứu</a>
+          <a className="header-track" href="/tra-cuu">Tra cứu</a>
           <details className="mobile-menu">
             <summary aria-label="Mở menu"><Menu size={22} /></summary>
             <nav aria-label="Điều hướng trên điện thoại">
@@ -222,7 +222,7 @@ export default function Home() {
           <div className="footer-brand"><Logo footer /><p>Giải pháp vận chuyển quốc tế, mua hộ hàng Mỹ và hỗ trợ thủ tục hải quan.</p></div>
           <div className="footer-column"><h2>Liên hệ EZWAY</h2><a href="tel:0523666966"><Phone size={16} /> 0523.666.966</a><p><span className="footer-pin">•</span>112/40 Thạnh Xuân 22, Thới An,<br />TP. Hồ Chí Minh</p></div>
           <div className="footer-column"><h2>Liên kết nhanh</h2><a href="#top">Trang chủ</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#dich-vu">Dịch vụ</a><a href="#bao-gia">Nhận báo giá</a></div>
-          <div className="footer-column"><h2>Hỗ trợ</h2><a href="#tracking">Tra cứu vận đơn</a><a href="https://ezway.vn/tin-tuc">Tin tức</a><a href="https://wa.me/84523666966" target="_blank" rel="noreferrer">WhatsApp</a></div>
+          <div className="footer-column"><h2>Hỗ trợ</h2><a href="/tra-cuu">Tra cứu vận đơn</a><a href="https://ezway.vn/tin-tuc">Tin tức</a><a href="https://wa.me/84523666966" target="_blank" rel="noreferrer">WhatsApp</a></div>
         </div>
         <div className="container footer-bottom"><span>© 2026 EZWAY Logistics. All rights reserved.</span><span>Moving Made Easy</span></div>
       </footer>
