@@ -38,6 +38,23 @@ function consumeRateLimit(identifier: string) {
   return { allowed: true, retryAfter: 0 };
 }
 
+function isNotFoundResponse(payload: unknown) {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return false;
+  const record = payload as Record<string, unknown>;
+  const message = [record.message, record.error]
+    .find((value): value is string => typeof value === 'string')
+    ?.normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+
+  return Boolean(
+    message &&
+      (message.includes('khong ton tai') ||
+        message.includes('khong tim thay') ||
+        message.includes('not found')),
+  );
+}
+
 export async function GET(request: Request) {
   const rateLimit = consumeRateLimit(clientIdentifier(request));
   if (!rateLimit.allowed) {
@@ -75,9 +92,20 @@ export async function GET(request: Request) {
         signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
       });
 
-      if (response.status === 404) return json({ found: false }, 404);
+      const responseText = await response.text();
+      let parsedResponse: unknown;
+      try {
+        parsedResponse = JSON.parse(responseText);
+      } catch {
+        parsedResponse = null;
+      }
+
+      if (response.status === 404 || isNotFoundResponse(parsedResponse)) {
+        return json({ found: false }, 404);
+      }
       if (!response.ok) return json({ error: 'UPSTREAM_UNAVAILABLE' }, 502);
-      raw = await response.json();
+      if (parsedResponse === null) return json({ error: 'UPSTREAM_UNAVAILABLE' }, 502);
+      raw = parsedResponse;
     }
 
     const tracking = normalizeKsnResponse(raw, code);
