@@ -184,13 +184,19 @@ export function TrackingLookup() {
 
   useEffect(() => {
     const initialCode = new URLSearchParams(window.location.search).get('code')?.trim() ?? '';
+    let initialRequest: number | undefined;
     if (initialCode) {
-      setCode(initialCode);
-      void track(initialCode);
+      initialRequest = window.setTimeout(() => {
+        setCode(initialCode);
+        void track(initialCode);
+      }, 0);
     } else {
       inputRef.current?.focus();
     }
-    return () => requestController.current?.abort();
+    return () => {
+      if (initialRequest) window.clearTimeout(initialRequest);
+      requestController.current?.abort();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -7,19 +7,28 @@ export const metadata: Metadata = {
   description:
     'Giải pháp vận chuyển quốc tế, mua hộ hàng Mỹ và hỗ trợ hải quan từ Việt Nam.',
   openGraph: {
-    title: 'Vận chuyển quốc tế nhanh hơn, an toàn hơn, minh bạch hơn',
+    title: 'Gửi hàng quốc tế dễ hơn cùng EZWAY',
     description:
-      'EZWAY cung cấp giải pháp vận chuyển quốc tế, mua hộ hàng Mỹ và hỗ trợ hải quan.',
+      'Theo dõi hành trình, chuẩn bị hàng và nhận tư vấn vận chuyển quốc tế từ Việt Nam.',
     url: '/',
     siteName: 'EZWAY Logistics',
     locale: 'vi_VN',
     type: 'website',
+    images: [
+      {
+        url: 'https://ezway-logistics-vietnam.khoahamhoc-2576.chatgpt.site/ezway-logo.jpg',
+        width: 1280,
+        height: 960,
+        alt: 'EZWAY — Moving Made Easy',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vận chuyển quốc tế | EZWAY Logistics',
+    title: 'Gửi hàng quốc tế dễ hơn cùng EZWAY',
     description:
-      'Giải pháp vận chuyển quốc tế rõ ràng, thuận tiện từ Việt Nam.',
+      'Theo dõi hành trình và nhận tư vấn vận chuyển quốc tế từ Việt Nam.',
+    images: ['https://ezway-logistics-vietnam.khoahamhoc-2576.chatgpt.site/ezway-logo.jpg'],
   },
 };
 
