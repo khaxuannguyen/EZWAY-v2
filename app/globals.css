@@ -187,7 +187,7 @@ footer { color: #d0def0; background: var(--navy-deep); }.footer-main { padding: 
 .home-eyebrow-light { color: #5ce2d8; }
 .home-hero .home-eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 8px 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(4,24,57,.22); }
 .home-hero .home-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: #5ce2d8; box-shadow: 0 0 0 4px rgba(92,226,216,.13); }
-.home-hero h1 { width: min(100%,1100px); margin: 3px auto 0; color: #fff; font-family: 'Be Vietnam Pro',sans-serif; font-size: clamp(52px,4.85vw,70px); line-height: .98; letter-spacing: -.035em; font-weight: 800; text-align: center; text-wrap: balance; font-synthesis: none; }
+.home-hero h1 { width: min(100%,1100px); margin: 3px auto 0; display: grid; row-gap: .11em; color: #fff; font-family: 'Be Vietnam Pro',sans-serif; font-size: clamp(52px,4.85vw,70px); line-height: .98; letter-spacing: -.035em; font-weight: 800; text-align: center; text-wrap: balance; font-synthesis: none; }
 .home-hero-title-line { display: block; }
 .home-hero-title-subline { font-weight: 700; }
 .home-hero-title-accent { color: #5ce2d8; }
