@@ -16,6 +16,7 @@ export type RelatedOrder = {
 };
 
 export type NormalizedTracking = {
+  isMock?: boolean;
   queryCode: string;
   packageCode?: string;
   packageTrackingCode?: string;
@@ -29,7 +30,7 @@ export type NormalizedTracking = {
   totalPackages?: string;
   lastMileCarrier?: string;
   lastMileWebsite?: string;
-  contactInformation?: string;
+  estimatedDelivery?: string;
   timeline: TrackingEvent[];
   orderNumbers: RelatedOrder[];
 };
@@ -90,20 +91,6 @@ function normalizeLocation(value: unknown): string | undefined {
     pick(record, ['country', 'country_name']),
   ].filter(Boolean);
   return parts.length ? [...new Set(parts)].join(', ') : undefined;
-}
-
-function normalizeContact(value: unknown): string | undefined {
-  const direct = stringValue(value);
-  if (direct) return direct;
-  const record = asRecord(value);
-  if (!record) return undefined;
-  const parts = [
-    pick(record, ['name', 'contact_name']),
-    pick(record, ['phone', 'telephone', 'hotline']),
-    pick(record, ['email']),
-    pick(record, ['address']),
-  ].filter(Boolean);
-  return parts.length ? parts.join(' · ') : undefined;
 }
 
 function unwrapPayload(raw: unknown): JsonRecord | null {
@@ -205,6 +192,7 @@ export function normalizeKsnResponse(raw: unknown, queryCode: string): Normalize
   if (!hasMeaningfulData) return null;
 
   return {
+    isMock: payload.is_mock === true,
     queryCode,
     packageCode,
     packageTrackingCode,
@@ -229,10 +217,10 @@ export function normalizeKsnResponse(raw: unknown, queryCode: string): Normalize
       safeHttpUrl(additional?.last_mile_website ?? additional?.last_mile_url) ??
       safeHttpUrl(shipment?.last_mile_website ?? shipment?.last_mile_url) ??
       safeHttpUrl(payload.last_mile_website),
-    contactInformation:
-      normalizeContact(additional?.contact_information ?? additional?.contact) ??
-      normalizeContact(shipment?.contact_information ?? shipment?.contact) ??
-      normalizeContact(payload.contact_information),
+    estimatedDelivery:
+      pick(additional, ['estimated_delivery', 'estimated_delivery_date', 'expected_delivery', 'eta']) ??
+      pick(shipment, ['estimated_delivery', 'estimated_delivery_date', 'expected_delivery', 'eta']) ??
+      pick(payload, ['estimated_delivery', 'estimated_delivery_date', 'expected_delivery', 'eta']),
     timeline,
     orderNumbers,
   };
@@ -241,27 +229,31 @@ export function normalizeKsnResponse(raw: unknown, queryCode: string): Normalize
 export function createMockKsnResponse(queryCode: string): unknown {
   const normalizedCode = queryCode.toUpperCase();
   const delivered = normalizedCode.includes('DELIVERED');
+  const inspection = normalizedCode.includes('INSPECTION');
   const customs = normalizedCode.includes('CUSTOMS');
   const latestTitle = delivered
     ? 'Delivered'
+    : inspection
+      ? 'USDA SECOND INSPECTION'
     : customs
       ? 'DESTINATION CUSTOMS PROCESSING'
       : 'In Transit to next facility';
-  const statusClass = delivered ? 'delivered' : customs ? 'customs_processing' : 'in_transit';
+  const statusClass = delivered ? 'delivered' : inspection ? 'inspection' : customs ? 'customs_processing' : 'in_transit';
 
   return {
     success: true,
     data: {
+      is_mock: true,
       package_code: 'EZW-MOCK-0001',
       package_tracking_code: queryCode,
-      carrier_code: 'KSN',
-      tracking_url: 'https://tools.usps.com/go/TrackConfirmAction_input',
+      carrier_code: 'UPS-MOCK-8421',
+      tracking_url: 'https://www.ups.com/track',
       additional_notes: {
-        service: 'Air Express',
+        service: 'KSN-SEA-USA-BH',
         country: 'United States',
-        total_package: 2,
-        last_mile: 'USPS',
-        last_mile_website: 'https://www.usps.com/',
+        total_package: 5,
+        last_mile: 'UPS',
+        last_mile_website: 'https://www.ups.com/track',
         contact_information: { phone: '0523.666.966' },
       },
       shipment_information: {
@@ -273,17 +265,20 @@ export function createMockKsnResponse(queryCode: string): unknown {
             is_current: true,
             status_class: statusClass,
             status: latestTitle,
-            tracking_url: 'https://tools.usps.com/go/TrackConfirmAction_input',
+            tracking_url: 'https://www.ups.com/track',
           },
           {
             hawb: 'KSN-ORIGIN-8421',
             tracking_code: 'KSN84210001',
             status: 'Processing',
           },
+          { hawb: 'EZW-MOCK-0002', tracking_code: 'UPSMOCK0002', status: 'In Transit to next facility' },
+          { hawb: 'EZW-MOCK-0003', tracking_code: 'UPSMOCK0003', status: 'Arrived Destination Airport' },
+          { hawb: 'EZW-MOCK-0004', tracking_code: 'UPSMOCK0004', status: 'Shipment Created' },
         ],
       },
       trackings: [
-        { time: '2026-08-25T06:30:00Z', title: latestTitle, location: delivered ? 'Seattle, WA' : customs ? null : 'Singapore Hub' },
+        { time: '2026-08-25T06:30:00Z', title: latestTitle, location: delivered ? 'Seattle, WA' : inspection ? 'Los Angeles, US' : customs ? null : 'Singapore Hub' },
         { time: '2026-08-24T14:15:00Z', title: 'Customs Processing', location: null },
         { time: '2026-08-24T08:20:00Z', title: 'Arrived Destination Airport', location: 'Los Angeles, CA' },
         { time: '2026-08-23T22:10:00Z', title: 'Departed', location: 'Singapore' },
@@ -291,6 +286,10 @@ export function createMockKsnResponse(queryCode: string): unknown {
         { time: '2026-08-22T16:40:00Z', title: 'Export Scan & Leave our warehouse', location: 'TP. Hồ Chí Minh' },
         { time: '2026-08-22T09:15:00Z', title: 'We Have Your Parcel', location: 'TP. Hồ Chí Minh' },
         { time: '2026-08-21T15:30:00Z', title: 'LABEL CREATED', location: null },
+        { time: '2026-08-21T10:15:00Z', title: 'Shipping information received', location: null },
+        { time: '2026-08-20T14:20:00Z', title: 'Item processed at sorting facility', location: 'TP. Hồ Chí Minh' },
+        { time: '2026-08-20T09:40:00Z', title: 'Origin customs processing', location: 'TP. Hồ Chí Minh' },
+        { time: '2026-08-19T16:00:00Z', title: 'Shipment Created', location: 'TP. Hồ Chí Minh' },
       ],
     },
   };
