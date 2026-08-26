@@ -113,7 +113,7 @@ export default function Home() {
 
       <section className="home-hero" aria-labelledby="home-hero-title"><div className="home-hero-orbit" aria-hidden="true" /><div className="home-container home-hero-inner">
         <p className="home-eyebrow home-eyebrow-light"><span /> VẬN CHUYỂN QUỐC TẾ TỪ VIỆT NAM</p>
-        <h1 id="home-hero-title">Gửi hàng quốc tế<br /><em>dễ hơn cùng EZWAY</em></h1>
+        <h1 id="home-hero-title">GỬI HÀNG QUỐC TẾ<br /><em>DỄ HƠN CÙNG EZWAY</em></h1>
         <p className="home-hero-route">Từ Việt Nam đi Mỹ, Úc, Canada, châu Âu và nhiều quốc gia khác.</p>
         <p className="home-hero-copy">EZWAY hỗ trợ nhận hàng, đóng gói, khai báo, theo dõi hành trình và giao tận nhà theo phương án được tư vấn trước.</p>
         <div className="home-tracking-wrap"><TrackingForm /></div>
