@@ -79,6 +79,28 @@ function translateStatus(status: string) {
     'LABEL CREATED': 'Đã tạo nhãn vận đơn',
     'OUT FOR DELIVERY': 'Đang giao tới người nhận',
     'ONBOARD FOR DELIVERY': 'Đang giao tới người nhận',
+    'OUT FOR DELIVERY TODAY': 'Đang giao tới người nhận trong hôm nay',
+    'YOUR PARCEL WILL BE WITH YOU TODAY': 'Đang chuẩn bị giao tới người nhận trong hôm nay',
+    'YOUR PARCEL HAS BEEN DELIVERED': 'Đã giao hàng thành công',
+    'YOUR PARCEL HAS BEEN DELIVERED TO YOUR NEIGHBOUR': 'Đã giao cho người nhận thay thế hoặc hàng xóm',
+    'RELEASE FROM CUSTOMS': 'Đã hoàn tất thông quan',
+    'NEW VESSEL DEPARTURE FROM TRANSHIPMENT PORT': 'Đã rời cảng trung chuyển bằng tàu mới',
+    'LOADED ON NEW VESSEL AT TRANSHIPMENT PORT': 'Đã xếp lên tàu tại cảng trung chuyển',
+    'UNLOADED FROM VESSEL AT TRANSHIPMENT PORT': 'Đã dỡ khỏi tàu tại cảng trung chuyển',
+    'ARRIVAL AT TRANSHIPMENT PORT': 'Đã đến cảng trung chuyển',
+    'PORT OF LOADING': 'Đã đến cảng xếp hàng',
+    'CONTAINER CLOSING': 'Đang hoàn tất đóng container',
+    'LOADED ON DELIVERY VEHICLE': 'Đã xếp lên xe giao hàng',
+    'PROCESSING AT UPS FACILITY': 'Đang xử lý tại trung tâm UPS',
+    'ARRIVED AT FACILITY': 'Đã đến trung tâm khai thác',
+    'DEPARTED FROM FACILITY': 'Đã rời trung tâm khai thác',
+    'CLEARED CUSTOMS': 'Đã hoàn tất thông quan',
+    'IN TRANSIT TO DESTINATION': 'Đang vận chuyển tới điểm nhận',
+    'ORDER RECEIVED': 'Đã tiếp nhận đơn hàng',
+    "WE'VE GOT IT": 'Hãng vận chuyển đã nhận kiện hàng',
+    'YOUR PARCEL HAS ARRIVED AT OUR DEPOT': 'Đã đến kho giao hàng',
+    "WE'VE RECEIVED YOUR ORDER DETAILS, BUT HAVE NOT YET RECEIVED YOUR PARCEL": 'Hãng giao đã nhận thông tin đơn hàng',
+    'SHIPPER CREATED A LABEL, UPS HAS NOT RECEIVED THE PACKAGE YET.': 'UPS đã nhận thông tin vận đơn và đang chờ nhận kiện hàng',
     DELIVERED: 'Đã giao hàng thành công',
     DEPARTED: 'Đã rời điểm khai thác',
   };
@@ -93,6 +115,7 @@ function translateStatus(status: string) {
   if (/ARRIVED.*DESTINATION/.test(value)) return 'Đã đến điểm khai thác tại nước nhận';
   if (/ARRIVED/.test(value)) return 'Đã đến điểm khai thác tiếp theo';
   if (/DEPART|EXPORT|LEAVE OUR WAREHOUSE/.test(value)) return 'Đã rời điểm khai thác';
+  if (/ESTIMATED FLIGHT SCHEDULE/.test(value)) return 'Đã cập nhật lịch bay dự kiến';
   if (/TRANSIT|NEXT FACILITY|FLIGHT/.test(value)) return 'Đang vận chuyển tới điểm tiếp theo';
   if (/SORTING|PROCESSED.*FACILITY/.test(value)) return 'Đã xử lý tại trung tâm khai thác';
   if (/RECEIVED|HAVE YOUR PARCEL|PICKED/.test(value)) return 'Đã nhận kiện hàng';
@@ -110,7 +133,7 @@ function statusInfo(status: string, statusClass?: string) {
   if (/delivered|đã giao/.test(value)) {
     return { tone: 'success' as Tone, stage: 4, label: 'ĐÃ GIAO HÀNG', attention: false };
   }
-  if (/out for delivery|onboard for delivery|đang giao/.test(value)) {
+  if (/out for delivery|onboard for delivery|will be with you today|đang giao/.test(value)) {
     return { tone: 'info' as Tone, stage: 4, label: 'ĐANG GIAO HÀNG', attention: false };
   }
   if (attention) {
@@ -125,7 +148,7 @@ function statusInfo(status: string, statusClass?: string) {
   if (/arrived destination|destination port|destination airport|đến nước nhận/.test(value)) {
     return { tone: 'info' as Tone, stage: 2, label: 'ĐÃ ĐẾN NƯỚC NHẬN', attention: false };
   }
-  if (/export|departed|leave our warehouse|đã xuất/.test(value)) {
+  if (/export|departed|departure|vessel|transshipment|port of loading|leave our warehouse|đã xuất/.test(value)) {
     return { tone: 'info' as Tone, stage: 1, label: 'ĐÃ XUẤT VIỆT NAM', attention: false };
   }
   if (/transit|airport|facility|flight|shipping|vận chuyển/.test(value)) {
@@ -190,6 +213,7 @@ function statusHeadline(status: string, translatedStatus: string, location?: str
   const place = location ? ` tại ${location}` : '';
   if (/USDA|INSPECTION/.test(value)) return `Kiện hàng đang được kiểm tra bổ sung${place}`;
   if (/CUSTOMS.*HOLD|HOLD.*CUSTOMS/.test(value)) return `Kiện hàng đang được kiểm tra hải quan${place}`;
+  if (/DELIVERED TO YOUR NEIGHBOUR/.test(value)) return 'Kiện hàng đã được giao cho người nhận thay thế hoặc hàng xóm';
   if (/DELIVERED/.test(value)) return 'Kiện hàng đã được giao thành công';
   if (/OUT FOR DELIVERY|ONBOARD FOR DELIVERY/.test(value)) return `Kiện hàng đang được giao tới người nhận${place}`;
   if (/CUSTOMS|CLEARANCE/.test(value)) return `Kiện hàng đang được xử lý thông quan${place}`;
