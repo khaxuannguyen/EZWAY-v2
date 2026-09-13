@@ -1,0 +1,58 @@
+export const newsArticles = [
+  {
+    category: 'Logistics Việt Nam', region: 'Trong nước', source: 'Logistics Việt Nam · Bộ Công Thương',
+    date: '24/08/2026', isoDate: '2026-08-24',
+    title: 'Logistics cần được nhìn nhận như hạ tầng thiết yếu của đô thị thông minh',
+    summary: 'Tọa đàm đề xuất kết nối dữ liệu, tự động hóa và quy hoạch dòng hàng hóa để phát triển đô thị bền vững.',
+    href: 'https://logistics.gov.vn/tin-hoat-dong/toa-dam-phat-trien-do-thi-thong-minh-ben-vung-duoi-goc-nhin-logistics-va-quan-ly-chuoi-cung-ung',
+  },
+  {
+    category: 'Kinh tế Việt Nam', region: 'Trong nước', source: 'VnEconomy',
+    date: '22/08/2026', isoDate: '2026-08-22',
+    title: 'Nửa đầu tháng 8/2026, xuất khẩu tăng tốc, nhập siêu còn 1,5 tỷ USD',
+    summary: 'Cục Hải quan ghi nhận xuất khẩu nửa đầu tháng 8 tăng trong khi nhập khẩu giảm, giúp thu hẹp nhập siêu của kỳ.',
+    href: 'https://vneconomy.vn/nua-dau-thang-82026-xuat-khau-tang-toc-nhap-sieu-con-15-ty-usd.htm',
+  },
+  {
+    category: 'Hạ tầng vận tải', region: 'Trong nước', source: 'VietnamPlus',
+    date: '12/08/2026', isoDate: '2026-08-12',
+    title: 'Thử nghiệm tuyến container quốc tế kết nối Cần Thơ với Quảng Tây',
+    summary: 'Tuyến thử nghiệm mở thêm phương án vận chuyển trực tiếp cho hàng nông sản Đồng bằng sông Cửu Long sang Trung Quốc.',
+    href: 'https://www.vietnamplus.vn/thu-nghiem-tuyen-container-quoc-te-ket-noi-can-tho-voi-quang-tay-post1129787.vnp',
+  },
+  {
+    category: 'Hải quan', region: 'Trong nước', source: 'Báo Chính phủ',
+    date: '10/08/2026', isoDate: '2026-08-10',
+    title: 'Nghỉ lễ 2/9 dài 5 ngày, hải quan trực 24/7 thông quan hàng hóa',
+    summary: 'Cục Hải quan bố trí lực lượng trực trong kỳ nghỉ để duy trì thủ tục, hệ thống và luồng hàng xuất nhập khẩu.',
+    href: 'https://baochinhphu.vn/nghi-le-2-9-dai-5-ngay-hai-quan-truc-24-7-thong-quan-hang-hoa-102260810182209985.htm',
+  },
+  {
+    category: 'Hàng hải quốc tế', region: 'Quốc tế', source: 'FreightWaves',
+    date: '24/08/2026', isoDate: '2026-08-24',
+    title: 'Kênh đào Panama giảm công suất, chuỗi vận tải biển đứng trước rủi ro mới',
+    summary: 'Hạn chế số lượt tàu và mớn nước có thể ảnh hưởng lịch trình, chi phí và định tuyến hàng hóa qua bờ Đông và vùng Vịnh Mỹ.',
+    href: 'https://www.freightwaves.com/news/panama-canal-new-capacity-cuts-put-us-ports-on-notice',
+  },
+  {
+    category: 'Công nghệ logistics', region: 'Quốc tế', source: 'FreightWaves',
+    date: '21/08/2026', isoDate: '2026-08-21',
+    title: 'Áp lực giao hàng nhanh thúc đẩy AI trong vận hành chặng cuối',
+    summary: 'Kỳ vọng giao nhanh và miễn phí đang khiến doanh nghiệp thử nghiệm AI hỗ trợ lập tuyến, điều phối và theo dõi giao hàng.',
+    href: 'https://www.freightwaves.com/news/fareye-agentic-ai-dispatcher',
+  },
+  {
+    category: 'Thị trường châu Âu', region: 'Quốc tế', source: 'Maersk',
+    date: '14/08/2026', isoDate: '2026-08-14',
+    title: 'Maersk cập nhật thị trường logistics châu Âu tháng 8/2026',
+    summary: 'Bản cập nhật lưu ý kế hoạch năng lực mùa cao điểm, điều kiện tại các cảng và rủi ro gián đoạn từ địa chính trị.',
+    href: 'https://www.maersk.com/news/articles/2026/08/14/europe-market-update-august',
+  },
+  {
+    category: 'Thương mại quốc tế', region: 'Quốc tế', source: 'Reuters',
+    date: '07/08/2026', isoDate: '2026-08-07',
+    title: 'Làn sóng nhập khẩu container sớm vào Mỹ bắt đầu hạ nhiệt',
+    summary: 'Các nhà giao nhận cho biết đợt đưa hàng vào sớm đã qua đỉnh, nhưng chi phí nền từ nhiên liệu và phụ phí tuyến vẫn có thể duy trì cao.',
+    href: 'https://www.marketscreener.com/news/early-surge-in-us-container-imports-coming-to-an-end-shippers-say-ce7f50d3d989f024',
+  },
+];

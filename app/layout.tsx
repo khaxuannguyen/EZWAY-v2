@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './info.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ezway.vn'),

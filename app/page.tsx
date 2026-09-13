@@ -1,3 +1,4 @@
+import { newsArticles } from './tin-tuc/market-news';
 import {
   ArrowRight, BadgeCheck, Box, Boxes, Check, ChevronRight, ClipboardCheck,
   ExternalLink, FileCheck2, Globe2, MapPin, Menu, MessageCircle, PackageCheck,
@@ -6,10 +7,10 @@ import {
 import { ConsultationForm, PurchaseRequestForm, TrackingForm } from './client-forms';
 
 const services = [
-  { icon: PlaneTakeoff, image: '/ezway-service-global.jpg', imageAlt: 'Các kiện hàng được dán nhãn và chuẩn bị tại khu vực khai thác vận chuyển quốc tế', title: 'Gửi hàng quốc tế', description: 'Tư vấn phương án gửi thực phẩm khô đóng gói, quần áo, đồ dùng cá nhân, quà tặng và nhiều nhóm hàng khác từ Việt Nam.', audience: 'Phù hợp với cá nhân, gia đình và người bán hàng cần gửi đến người nhận ở nước ngoài.', details: ['Kiểm tra loại hàng và tuyến đến', 'Hỗ trợ đóng gói, khai báo', 'Tra cứu hành trình sau khi gửi'], href: '#bao-gia' },
-  { icon: Snowflake, image: '/ezway-service-frozen.jpg', imageAlt: 'Kiện hàng bảo quản lạnh với túi giữ nhiệt và gel lạnh được chuẩn bị trên bàn đóng gói', title: 'Gửi hàng đông lạnh', description: 'Kiểm tra khả năng nhận theo loại hàng, quốc gia đến và điều kiện vận chuyển tại thời điểm gửi.', audience: 'Phù hợp với nhu cầu gửi thực phẩm cần bảo quản đặc biệt sau khi được EZWAY xác nhận tuyến.', details: ['Kiểm tra tuyến trước khi nhận hàng', 'Tư vấn quy cách bảo quản', 'Chỉ xác nhận khi đủ điều kiện vận chuyển'], href: '#lien-he', note: 'Cần kiểm tra tuyến' },
-  { icon: Tags, image: '/ezway-service-packing.jpg', imageAlt: 'Nhân viên chuẩn bị giấy bảo vệ và đóng gói quần áo trong thùng carton', title: 'Đóng gói & khai báo', description: 'Đóng gói, hút chân không, dán nhãn và hướng dẫn thông tin khai báo phù hợp với lô hàng.', audience: 'Phù hợp với khách chưa chắc cách chuẩn bị hàng hoặc muốn giảm rủi ro do đóng gói chưa đúng.', details: ['Kiểm tra tình trạng hàng', 'Đề xuất quy cách đóng gói', 'Hỗ trợ chuẩn bị thông tin khai báo'], href: '#bao-gia' },
-  { icon: Boxes, image: '/ezway-service-bulky.jpg', imageAlt: 'Kiện carton cỡ lớn được gia cố và đo kích thước trước khi vận chuyển', title: 'Hàng cồng kềnh / theo yêu cầu', description: 'Tiếp nhận thông tin lô hàng có kích thước lớn, thiết bị hoặc yêu cầu xử lý riêng để kiểm tra phương án.', audience: 'Phù hợp với lô hàng cần đánh giá kích thước, vật liệu, chứng từ hoặc điều kiện tuyến trước khi nhận.', details: ['Đánh giá từ hình ảnh và kích thước', 'Kiểm tra yêu cầu chứng từ', 'Xác nhận phương án trước khi gửi'], href: '#lien-he' },
+  { icon: PlaneTakeoff, image: '/ezway-service-global.jpg', imageAlt: 'Các kiện hàng được dán nhãn và chuẩn bị tại khu vực khai thác vận chuyển quốc tế', title: 'Gửi hàng quốc tế', description: 'Tư vấn phương án gửi thực phẩm khô đóng gói, quần áo, đồ dùng cá nhân, quà tặng và nhiều nhóm hàng khác từ Việt Nam.', audience: 'Phù hợp với cá nhân, gia đình và người bán hàng cần gửi đến người nhận ở nước ngoài.', details: ['Kiểm tra loại hàng và tuyến đến', 'Hỗ trợ đóng gói, khai báo', 'Tra cứu hành trình sau khi gửi'], href: '/dich-vu/gui-hang-quoc-te' },
+  { icon: Snowflake, image: '/ezway-service-frozen.jpg', imageAlt: 'Kiện hàng bảo quản lạnh với túi giữ nhiệt và gel lạnh được chuẩn bị trên bàn đóng gói', title: 'Gửi hàng đông lạnh', description: 'Kiểm tra khả năng nhận theo loại hàng, quốc gia đến và điều kiện vận chuyển tại thời điểm gửi.', audience: 'Phù hợp với nhu cầu gửi thực phẩm cần bảo quản đặc biệt sau khi được EZWAY xác nhận tuyến.', details: ['Kiểm tra tuyến trước khi nhận hàng', 'Tư vấn quy cách bảo quản', 'Chỉ xác nhận khi đủ điều kiện vận chuyển'], href: '/dich-vu/hang-dong-lanh', note: 'Cần kiểm tra tuyến' },
+  { icon: Tags, image: '/ezway-service-packing.jpg', imageAlt: 'Nhân viên chuẩn bị giấy bảo vệ và đóng gói quần áo trong thùng carton', title: 'Đóng gói & khai báo', description: 'Đóng gói, hút chân không, dán nhãn và hướng dẫn thông tin khai báo phù hợp với lô hàng.', audience: 'Phù hợp với khách chưa chắc cách chuẩn bị hàng hoặc muốn giảm rủi ro do đóng gói chưa đúng.', details: ['Kiểm tra tình trạng hàng', 'Đề xuất quy cách đóng gói', 'Hỗ trợ chuẩn bị thông tin khai báo'], href: '/dich-vu/dong-goi-khai-bao' },
+  { icon: Boxes, image: '/ezway-service-bulky.jpg', imageAlt: 'Kiện carton cỡ lớn được gia cố và đo kích thước trước khi vận chuyển', title: 'Hàng cồng kềnh / theo yêu cầu', description: 'Tiếp nhận thông tin lô hàng có kích thước lớn, thiết bị hoặc yêu cầu xử lý riêng để kiểm tra phương án.', audience: 'Phù hợp với lô hàng cần đánh giá kích thước, vật liệu, chứng từ hoặc điều kiện tuyến trước khi nhận.', details: ['Đánh giá từ hình ảnh và kích thước', 'Kiểm tra yêu cầu chứng từ', 'Xác nhận phương án trước khi gửi'], href: '/dich-vu/hang-cong-kenh' },
 ];
 
 const routes = [
@@ -35,64 +36,7 @@ const usBuyingSteps = [
   { title: 'Nhận tại kho Mỹ & gửi về Việt Nam', copy: 'Khi người bán giao tới kho, đơn tiếp tục theo phương án vận chuyển đã được xác nhận.' },
 ];
 
-const newsArticles = [
-  {
-    category: 'Logistics Việt Nam', region: 'Trong nước', source: 'Logistics Việt Nam · Bộ Công Thương',
-    date: '24/08/2026', isoDate: '2026-08-24',
-    title: 'Logistics cần được nhìn nhận như hạ tầng thiết yếu của đô thị thông minh',
-    summary: 'Tọa đàm đề xuất kết nối dữ liệu, tự động hóa và quy hoạch dòng hàng hóa để phát triển đô thị bền vững.',
-    href: 'https://logistics.gov.vn/tin-hoat-dong/toa-dam-phat-trien-do-thi-thong-minh-ben-vung-duoi-goc-nhin-logistics-va-quan-ly-chuoi-cung-ung',
-  },
-  {
-    category: 'Kinh tế Việt Nam', region: 'Trong nước', source: 'VnEconomy',
-    date: '22/08/2026', isoDate: '2026-08-22',
-    title: 'Nửa đầu tháng 8/2026, xuất khẩu tăng tốc, nhập siêu còn 1,5 tỷ USD',
-    summary: 'Cục Hải quan ghi nhận xuất khẩu nửa đầu tháng 8 tăng trong khi nhập khẩu giảm, giúp thu hẹp nhập siêu của kỳ.',
-    href: 'https://vneconomy.vn/nua-dau-thang-82026-xuat-khau-tang-toc-nhap-sieu-con-15-ty-usd.htm',
-  },
-  {
-    category: 'Hạ tầng vận tải', region: 'Trong nước', source: 'VietnamPlus',
-    date: '12/08/2026', isoDate: '2026-08-12',
-    title: 'Thử nghiệm tuyến container quốc tế kết nối Cần Thơ với Quảng Tây',
-    summary: 'Tuyến thử nghiệm mở thêm phương án vận chuyển trực tiếp cho hàng nông sản Đồng bằng sông Cửu Long sang Trung Quốc.',
-    href: 'https://www.vietnamplus.vn/thu-nghiem-tuyen-container-quoc-te-ket-noi-can-tho-voi-quang-tay-post1129787.vnp',
-  },
-  {
-    category: 'Hải quan', region: 'Trong nước', source: 'Báo Chính phủ',
-    date: '10/08/2026', isoDate: '2026-08-10',
-    title: 'Nghỉ lễ 2/9 dài 5 ngày, hải quan trực 24/7 thông quan hàng hóa',
-    summary: 'Cục Hải quan bố trí lực lượng trực trong kỳ nghỉ để duy trì thủ tục, hệ thống và luồng hàng xuất nhập khẩu.',
-    href: 'https://baochinhphu.vn/nghi-le-2-9-dai-5-ngay-hai-quan-truc-24-7-thong-quan-hang-hoa-102260810182209985.htm',
-  },
-  {
-    category: 'Hàng hải quốc tế', region: 'Quốc tế', source: 'FreightWaves',
-    date: '24/08/2026', isoDate: '2026-08-24',
-    title: 'Kênh đào Panama giảm công suất, chuỗi vận tải biển đứng trước rủi ro mới',
-    summary: 'Hạn chế số lượt tàu và mớn nước có thể ảnh hưởng lịch trình, chi phí và định tuyến hàng hóa qua bờ Đông và vùng Vịnh Mỹ.',
-    href: 'https://www.freightwaves.com/news/panama-canal-new-capacity-cuts-put-us-ports-on-notice',
-  },
-  {
-    category: 'Công nghệ logistics', region: 'Quốc tế', source: 'FreightWaves',
-    date: '21/08/2026', isoDate: '2026-08-21',
-    title: 'Áp lực giao hàng nhanh thúc đẩy AI trong vận hành chặng cuối',
-    summary: 'Kỳ vọng giao nhanh và miễn phí đang khiến doanh nghiệp thử nghiệm AI hỗ trợ lập tuyến, điều phối và theo dõi giao hàng.',
-    href: 'https://www.freightwaves.com/news/fareye-agentic-ai-dispatcher',
-  },
-  {
-    category: 'Thị trường châu Âu', region: 'Quốc tế', source: 'Maersk',
-    date: '14/08/2026', isoDate: '2026-08-14',
-    title: 'Maersk cập nhật thị trường logistics châu Âu tháng 8/2026',
-    summary: 'Bản cập nhật lưu ý kế hoạch năng lực mùa cao điểm, điều kiện tại các cảng và rủi ro gián đoạn từ địa chính trị.',
-    href: 'https://www.maersk.com/news/articles/2026/08/14/europe-market-update-august',
-  },
-  {
-    category: 'Thương mại quốc tế', region: 'Quốc tế', source: 'Reuters',
-    date: '07/08/2026', isoDate: '2026-08-07',
-    title: 'Làn sóng nhập khẩu container sớm vào Mỹ bắt đầu hạ nhiệt',
-    summary: 'Các nhà giao nhận cho biết đợt đưa hàng vào sớm đã qua đỉnh, nhưng chi phí nền từ nhiên liệu và phụ phí tuyến vẫn có thể duy trì cao.',
-    href: 'https://www.marketscreener.com/news/early-surge-in-us-container-imports-coming-to-an-end-shippers-say-ce7f50d3d989f024',
-  },
-];
+
 
 function BrandLogo({ footer = false }: { footer?: boolean }) {
   return <span className={footer ? 'home-footer-logo-panel' : 'home-logo'}><img src="/ezway-logo-transparent.png" alt="EZWAY — Moving Made Easy" /></span>;
@@ -105,9 +49,9 @@ export default function Home() {
         <div className="home-topbar"><div className="home-container home-topbar-inner"><a href="tel:0523666966"><Phone size={13} /> Hotline: 0523.666.966</a><a href="/tra-cuu"><Radar size={13} /> Tra cứu đơn hàng</a></div></div>
         <header className="home-header"><div className="home-container home-nav">
           <a href="#top" aria-label="EZWAY - Trang chủ"><BrandLogo /></a>
-          <nav className="home-desktop-nav" aria-label="Điều hướng chính"><a href="#top">Trang chủ</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#dich-vu">Dịch vụ</a><a href="#bao-gia">Giá cước</a><a href="#tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a></nav>
-          <a className="home-header-cta" href="#bao-gia">Nhận báo giá <ArrowRight size={16} /></a>
-          <details className="home-mobile-menu"><summary aria-label="Mở menu điều hướng"><Menu size={22} /></summary><nav aria-label="Điều hướng trên điện thoại"><a href="#top">Trang chủ</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#dich-vu">Dịch vụ</a><a href="#bao-gia">Giá cước</a><a href="#tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a><a className="home-mobile-hotline" href="tel:0523666966"><Phone size={16} /> 0523.666.966</a></nav></details>
+          <nav className="home-desktop-nav" aria-label="Điều hướng chính"><a href="#top">Trang chủ</a><a href="/mua-ho-hang-my">Mua hộ hàng Mỹ</a><a href="/dich-vu">Dịch vụ</a><a href="/gia-cuoc">Giá cước</a><a href="/tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a></nav>
+          <a className="home-header-cta" href="/gia-cuoc">Nhận báo giá <ArrowRight size={16} /></a>
+          <details className="home-mobile-menu"><summary aria-label="Mở menu điều hướng"><Menu size={22} /></summary><nav aria-label="Điều hướng trên điện thoại"><a href="#top">Trang chủ</a><a href="/mua-ho-hang-my">Mua hộ hàng Mỹ</a><a href="/dich-vu">Dịch vụ</a><a href="/gia-cuoc">Giá cước</a><a href="/tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a><a className="home-mobile-hotline" href="tel:0523666966"><Phone size={16} /> 0523.666.966</a></nav></details>
         </div></header>
       </div>
 
@@ -130,7 +74,7 @@ export default function Home() {
             <li className="is-current"><span><Radar size={11} /></span><small>Đang giao</small></li>
           </ol>
         </div>
-        <a className="home-hero-quote" href="#bao-gia">Chưa có mã? Nhận báo giá <ChevronRight size={16} /></a>
+        <a className="home-hero-quote" href="/gia-cuoc">Chưa có mã? Nhận báo giá <ChevronRight size={16} /></a>
         <div className="home-trust-points" aria-label="Những hỗ trợ chính"><span><SearchCheck size={17} /> Theo dõi hành trình</span><span><Box size={17} /> Hỗ trợ đóng gói</span><span><MessageCircle size={17} /> Tư vấn trước khi gửi</span></div>
       </div></section>
 
@@ -146,7 +90,7 @@ export default function Home() {
 
       <section className="home-section home-services" id="dich-vu"><div className="home-container">
         <div className="home-heading home-heading-split"><div><p className="home-eyebrow">DỊCH VỤ VẬN CHUYỂN</p><h2>Bạn cần gửi gì? EZWAY kiểm tra tuyến phù hợp trước khi nhận hàng.</h2></div><p>Thực phẩm, đồ cá nhân, hàng đông lạnh hay mua hộ Mỹ — mỗi nhóm hàng đều cần cách chuẩn bị riêng.</p></div>
-        <div className="home-service-grid">{services.map(({ icon: Icon, image, imageAlt, title, description, audience, details, href, note }) => <article className="home-service-card" key={title}>
+        <p><a className="info-text-link" href="/dich-vu">Xem tất cả dịch vụ và hướng dẫn chuẩn bị →</a></p><div className="home-service-grid">{services.map(({ icon: Icon, image, imageAlt, title, description, audience, details, href, note }) => <article className="home-service-card" key={title}>
           <figure className="home-service-visual"><img src={image} width="1200" height="800" loading="lazy" decoding="async" alt={imageAlt} /><figcaption><span><Icon size={24} /></span><div><small>Hình ảnh minh hoạ</small>{note && <em>{note}</em>}</div></figcaption></figure><h3>{title}</h3><p>{description}</p>
           <details><summary>Xem dịch vụ phù hợp <ChevronRight size={16} /></summary><div><p><strong>Đối tượng phù hợp:</strong> {audience}</p><ul>{details.map(item => <li key={item}><Check size={14} /> {item}</li>)}</ul></div></details>
           <a href={href}>Xem điều kiện gửi <ArrowRight size={16} /></a>
@@ -155,7 +99,7 @@ export default function Home() {
       </div></section>
 
       <section className="home-us-buy" id="mua-ho" aria-labelledby="us-buy-title"><div className="home-container">
-        <div className="home-us-buy-grid">
+        <p><a className="info-text-link" href="/mua-ho-hang-my">Quy trình, chi phí và câu hỏi mua hộ →</a></p><div className="home-us-buy-grid">
           <div className="home-us-buy-copy"><div className="home-us-flag"><span aria-hidden="true">🇺🇸</span><strong>DỊCH VỤ RIÊNG · MỸ → VIỆT NAM</strong></div><p className="home-eyebrow home-eyebrow-light">MUA HỘ HÀNG MỸ</p><h2 id="us-buy-title">Bạn chọn món.<br />EZWAY hỗ trợ đặt mua và đưa hàng về Việt Nam.</h2><p>Dành riêng cho khách muốn mua tại website Mỹ nhưng cần hỗ trợ thanh toán, nhận hàng tại Mỹ và vận chuyển về Việt Nam. Khả năng mua được kiểm tra theo từng website và loại sản phẩm.</p>
             <figure className="home-us-photo"><img src="/ezway-us-shopping.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Minh hoạ kiện hàng mua hộ gồm giày, quần áo và sản phẩm chăm sóc được chuẩn bị tại kho" /><figcaption><span>HÀNG MUA HỘ</span><small>Hình ảnh minh hoạ</small></figcaption></figure>
             <div className="home-us-benefits"><span><ShoppingBag size={18} /><strong>Gửi đúng link & thuộc tính</strong></span><span><ClipboardCheck size={18} /><strong>Xác nhận chi phí trước khi mua</strong></span><span><Radar size={18} /><strong>Theo dõi hành trình về Việt Nam</strong></span></div>
@@ -170,7 +114,7 @@ export default function Home() {
 
       <section className="home-section home-routes" aria-labelledby="routes-title"><div className="home-container">
         <div className="home-heading home-heading-centered"><p className="home-eyebrow">TUYẾN VẬN CHUYỂN</p><h2 id="routes-title">Các điểm đến đang được tư vấn</h2><p>Thời gian, chi phí và khả năng nhận hàng được xác nhận riêng theo từng lô hàng — không áp dụng một cam kết chung cho mọi tuyến.</p></div>
-        <div className="home-route-grid">{routes.map(route => <article key={route.name}><span className="home-flag" aria-hidden="true">{route.flag}</span><h3>{route.name}</h3><p>{route.copy}</p><a href="#bao-gia">Xem giá cước <ChevronRight size={15} /></a></article>)}</div>
+        <div className="home-route-grid">{routes.map(route => <article key={route.name}><span className="home-flag" aria-hidden="true">{route.flag}</span><h3>{route.name}</h3><p>{route.copy}</p><a href="/gia-cuoc">Xem giá cước <ChevronRight size={15} /></a></article>)}</div>
       </div></section>
 
       <section className="home-operations" aria-labelledby="operations-title"><div className="home-container">
@@ -184,7 +128,7 @@ export default function Home() {
       <section className="home-section home-process" aria-labelledby="process-title"><div className="home-container">
         <div className="home-heading home-heading-centered"><p className="home-eyebrow">QUY TRÌNH GỬI HÀNG</p><h2 id="process-title">5 bước từ yêu cầu đến giao hàng</h2><p>Thông tin được kiểm tra theo từng bước để bạn biết cần chuẩn bị gì và có thể tra cứu ở đâu.</p></div>
         <ol className="home-process-list">{process.map(({ icon: Icon, title, copy }, index) => <li key={title}><span className="home-step-number">{String(index + 1).padStart(2, '0')}</span><span className="home-step-icon"><Icon size={22} /></span><h3>{title}</h3><p>{copy}</p></li>)}</ol>
-        <div className="home-section-action"><a className="home-button home-button-primary" href="#bao-gia">Nhận tư vấn <ArrowRight size={16} /></a></div>
+        <div className="home-section-action"><a className="home-button home-button-primary" href="/gia-cuoc">Nhận tư vấn <ArrowRight size={16} /></a></div>
       </div></section>
 
       <section className="home-section home-cargo" aria-labelledby="cargo-title"><div className="home-container">
@@ -199,7 +143,7 @@ export default function Home() {
       </div></section>
 
       <section className="home-section home-news" id="tin-tuc" aria-labelledby="news-title"><div className="home-container">
-        <div className="home-heading home-heading-split"><div><p className="home-eyebrow">TIN TỨC LOGISTICS & KINH TẾ</p><h2 id="news-title">Chuyển động thị trường trong và ngoài nước</h2><p>Các bài đáng chú ý được EZWAY chọn lọc và tóm tắt ngắn. Bấm vào từng bài để đọc nội dung đầy đủ tại nguồn xuất bản.</p></div><div className="home-news-updated"><Newspaper size={18} /><span><small>CẬP NHẬT GẦN NHẤT</small><strong>25/08/2026</strong></span></div></div>
+        <div className="home-heading home-heading-split"><div><p className="home-eyebrow">TIN TỨC LOGISTICS & KINH TẾ</p><h2 id="news-title">Chuyển động thị trường trong và ngoài nước</h2><p>Các bài đáng chú ý được EZWAY chọn lọc và tóm tắt ngắn. Bấm vào từng bài để đọc nội dung đầy đủ tại nguồn xuất bản.</p></div><div className="home-news-updated"><Newspaper size={18} /><span><small>BẢN TIN ĐÃ ĐĂNG</small><strong>25/08/2026</strong></span></div></div>
         <div className="home-news-grid">{newsArticles.map(article => <a className={article.region === 'Quốc tế' ? 'home-news-card is-international' : 'home-news-card'} href={article.href} target="_blank" rel="noopener noreferrer" key={article.href} aria-label={`${article.title} — đọc tại ${article.source}`}>
           <div className="home-news-tags"><span>{article.category}</span><em>{article.region}</em></div>
           <div className="home-news-source"><strong>{article.source}</strong><time dateTime={article.isoDate}>{article.date}</time></div>
@@ -222,10 +166,10 @@ export default function Home() {
       <footer className="home-footer"><div className="home-container home-footer-grid">
         <div className="home-footer-brand"><BrandLogo footer /><p>Vận chuyển quốc tế và mua hộ hàng Mỹ.</p><span>Moving Made Easy</span></div>
         <div className="home-footer-column"><h2>Liên hệ</h2><a href="tel:0523666966"><Phone size={15} /> 0523.666.966</a><p><MapPin size={15} /> <span>112/40 Thạnh Xuân 22, Thới An,<br />TP. Hồ Chí Minh</span></p></div>
-        <div className="home-footer-column"><h2>Dịch vụ</h2><a href="#dich-vu">Gửi hàng quốc tế</a><a href="#mua-ho">Mua hộ hàng Mỹ</a><a href="#bao-gia">Báo giá</a></div>
-        <div className="home-footer-column"><h2>Hỗ trợ</h2><a href="/tra-cuu">Tra cứu đơn hàng</a><a href="#tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a></div>
+        <div className="home-footer-column"><h2>Dịch vụ</h2><a href="/dich-vu">Gửi hàng quốc tế</a><a href="/mua-ho-hang-my">Mua hộ hàng Mỹ</a><a href="/gia-cuoc">Báo giá</a></div>
+        <div className="home-footer-column"><h2>Hỗ trợ</h2><a href="/tra-cuu">Tra cứu đơn hàng</a><a href="/tin-tuc">Tin tức</a><a href="#lien-he">Liên hệ</a></div>
       </div><div className="home-container home-footer-bottom"><span>© 2026 EZWAY. All rights reserved.</span><a href="#top">Về đầu trang ↑</a></div></footer>
-      <div className="home-mobile-actions"><a href="tel:0523666966"><Phone size={16} /> Gọi hotline</a><a href="#bao-gia">Nhận báo giá</a></div>
+      <div className="home-mobile-actions"><a href="tel:0523666966"><Phone size={16} /> Gọi hotline</a><a href="/gia-cuoc">Nhận báo giá</a></div>
     </main>
   );
 }
