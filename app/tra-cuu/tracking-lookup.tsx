@@ -77,6 +77,9 @@ function translateStatus(status: string) {
     'WE HAVE YOUR PARCEL': 'Đã nhận kiện hàng',
     'SHIPMENT CREATED': 'Đã tạo thông tin vận đơn',
     'LABEL CREATED': 'Đã tạo nhãn vận đơn',
+    'PACKAGE RECEIVED': 'Đã nhận kiện hàng',
+    'ORIGIN CUSTOMS PROCESSING': 'Đang xử lý hải quan tại nơi gửi',
+    'ORIGIN CUSTOMS RELEASED': 'Đã hoàn tất hải quan tại nơi gửi',
     'OUT FOR DELIVERY': 'Đang giao tới người nhận',
     'ONBOARD FOR DELIVERY': 'Đang giao tới người nhận',
     'OUT FOR DELIVERY TODAY': 'Đang giao tới người nhận trong hôm nay',
@@ -136,6 +139,9 @@ function statusInfo(status: string, statusClass?: string) {
   if (/out for delivery|onboard for delivery|will be with you today|đang giao/.test(value)) {
     return { tone: 'info' as Tone, stage: 4, label: 'ĐANG GIAO HÀNG', attention: false };
   }
+  if (/origin customs/.test(value)) {
+    return { tone: 'info' as Tone, stage: 0, label: 'HẢI QUAN TẠI NƠI GỬI', attention: false };
+  }
   if (attention) {
     return { tone: 'warning' as Tone, stage: 3, label: 'CẦN THEO DÕI', attention: true };
   }
@@ -193,7 +199,7 @@ function formatEventTime(value: string) {
 
 function friendlyRoutePart(value: string) {
   const key = value.trim().toUpperCase();
-  const names: Record<string, string> = { VN: 'Việt Nam', VIETNAM: 'Việt Nam', US: 'United States', USA: 'United States', AU: 'Australia', UK: 'United Kingdom' };
+  const names: Record<string, string> = { VN: 'Việt Nam', VIETNAM: 'Việt Nam', 'VIET NAM': 'Việt Nam', US: 'United States', USA: 'United States', AU: 'Australia', UK: 'United Kingdom' };
   return names[key] ?? value.trim();
 }
 

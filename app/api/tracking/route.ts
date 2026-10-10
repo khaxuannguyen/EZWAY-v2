@@ -1,6 +1,7 @@
 import { createMockKsnResponse, normalizeKsnResponse } from '../../../lib/ksn-tracking';
 import type { NormalizedTracking } from '../../../lib/ksn-tracking';
 import { normalizeNamDeHtml } from '../../../lib/nam-de-tracking';
+import { lookupZat } from '../../../lib/zat-tracking';
 
 const WINDOW_MS = 60_000;
 const MAX_REQUESTS = 20;
@@ -167,6 +168,14 @@ export async function GET(request: Request) {
 
   let ksn: LookupResult;
   let namDe: LookupResult;
+
+  if (/^ZVN\d+$/i.test(code)) {
+    const zat = await lookupZat(code);
+    if (zat.kind === 'found') return json({ tracking: zat.tracking });
+    return zat.kind === 'not-found'
+      ? json({ found: false }, 404)
+      : json({ error: 'UPSTREAM_UNAVAILABLE' }, 502);
+  }
 
   if (/^\d{10}$/.test(code)) {
     namDe = await lookupNamDe(code);
