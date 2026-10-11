@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "status": "partial-poster-only",
+  "strategy": "C: photographic posters plus pending physically consistent pre-rendered sequences",
+  "posters": [
+    {
+      "id": "sea-poster-desktop",
+      "path": "/assets/freight-story/sea/posters/terminal-1672.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 298106,
+      "status": "provisional AI still; below 1920 source target",
+      "sha256": "4fa67f98f9cd2390f0c9a4d2323edca932a2e7caffdada67149b16cdc9b6d07e"
+    },
+    {
+      "id": "sea-poster-mobile",
+      "path": "/assets/freight-story/sea/posters/terminal-960.webp",
+      "width": 960,
+      "height": 540,
+      "bytes": 133142,
+      "status": "delivered AI still",
+      "sha256": "bbcbaa1a2880bab12fd48f3f9096e95896af1161b790df44398abfb0178e174a"
+    },
+    {
+      "id": "air-poster-desktop",
+      "path": "/assets/freight-story/air/posters/apron-1672.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 190290,
+      "status": "provisional AI still; below 1920 source target",
+      "sha256": "189f00f30a6e08c90f4b11ff734562c9eed77d12f65d8fee3304f1396b97c573"
+    },
+    {
+      "id": "air-poster-mobile",
+      "path": "/assets/freight-story/air/posters/apron-960.webp",
+      "width": 960,
+      "height": 540,
+      "bytes": 82012,
+      "status": "delivered AI still",
+      "sha256": "51f81ba97ebd280178f44978359f39dadc602dc9cb83401c74f74476bfae7873"
+    }
+  ],
+  "requiredRenderRoles": {
+    "sea": [
+      "yard environment",
+      "reach stacker rig",
+      "four-corner spreader rig",
+      "40-foot container",
+      "tractor and chassis with rotating wheels",
+      "quayside environment",
+      "ship-to-shore crane rig",
+      "container vessel and water"
+    ],
+    "air": [
+      "cargo apron environment",
+      "one widebody aircraft rig with door and landing gear",
+      "cargo pallet and dolly",
+      "main-deck high loader rig",
+      "runway environment",
+      "sky and atmospheric layers"
+    ]
+  },
+  "pendingSequences": [
+    {
+      "id": "sea-continuous-operation",
+      "status": "missing; not licensed/modeled/rendered/approved",
+      "count": 192,
+      "desktop": {
+        "template": "/assets/freight-story/sea/frames/desktop/{frame}.webp",
+        "width": 1600,
+        "height": 900
+      },
+      "mobile": {
+        "template": "/assets/freight-story/sea/frames/mobile/{frame}.webp",
+        "width": 960,
+        "height": 540
+      },
+      "phaseRanges": [
+        [
+          0,
+          23
+        ],
+        [
+          24,
+          63
+        ],
+        [
+          64,
+          103
+        ],
+        [
+          104,
+          119
+        ],
+        [
+          120,
+          167
+        ],
+        [
+          168,
+          191
+        ]
+      ],
+      "approved": false
+    },
+    {
+      "id": "air-continuous-operation",
+      "status": "missing; not licensed/modeled/rendered/approved",
+      "count": 192,
+      "desktop": {
+        "template": "/assets/freight-story/air/frames/desktop/{frame}.webp",
+        "width": 1600,
+        "height": 900
+      },
+      "mobile": {
+        "template": "/assets/freight-story/air/frames/mobile/{frame}.webp",
+        "width": 960,
+        "height": 540
+      },
+      "phaseRanges": [
+        [
+          0,
+          15
+        ],
+        [
+          16,
+          31
+        ],
+        [
+          32,
+          79
+        ],
+        [
+          80,
+          95
+        ],
+        [
+          96,
+          167
+        ],
+        [
+          168,
+          191
+        ]
+      ],
+      "approved": false
+    }
+  ],
+  "source": "built-in image_gen; full prompts in freight-asset-provenance.json",
+  "stockPurchases": 0,
+  "externalRuntimeAssetServers": 0,
+  "referenceAssetsCopied": 0
+}
