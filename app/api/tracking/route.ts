@@ -6,7 +6,9 @@ import {createRateLimiter,trackingClientKey,validTrackingCode,readBoundedText,se
 
 const WINDOW_MS = 60_000;
 const MAX_REQUESTS = 20;
-const UPSTREAM_TIMEOUT_MS = 12_000;
+// Live KSN lookups can take 20–46 seconds; keep a bounded deadline that
+// accommodates the partner's response rather than aborting at 12 seconds.
+const KSN_TIMEOUT_MS = 60_000;
 const NAM_DE_TIMEOUT_MS = 9_000;
 const NAM_DE_MAX_HTML_BYTES = 300_000;
 const limiter = createRateLimiter(MAX_REQUESTS, WINDOW_MS);
@@ -67,7 +69,7 @@ async function lookupKsn(code: string, apiKey: string | undefined): Promise<Look
         'Content-Type': 'application/json',
         'api-key': apiKey,
       },
-      signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+      signal: AbortSignal.timeout(KSN_TIMEOUT_MS),
     });
 
     const responseText = await readBoundedText(response);
