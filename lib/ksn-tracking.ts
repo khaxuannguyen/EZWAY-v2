@@ -86,7 +86,7 @@ function normalizeLocation(value: unknown): string | undefined {
   const record = asRecord(value);
   if (!record) return undefined;
   const parts = [
-    pick(record, ['name', 'city', 'location']),
+      pick(record, ['city', 'location']),
     pick(record, ['state', 'province']),
     pick(record, ['country', 'country_name']),
   ].filter(Boolean);
@@ -130,7 +130,7 @@ function getTimeline(payload: JsonRecord): TrackingEvent[] {
         event: {
           time: time ?? '',
           title: title ?? 'Cập nhật hành trình',
-          location: normalizeLocation(record.location ?? record.address ?? record.place),
+          location: normalizeLocation(record.location ?? record.place),
         },
         index,
         timestamp: Number.isNaN(parsedTime) ? null : parsedTime,

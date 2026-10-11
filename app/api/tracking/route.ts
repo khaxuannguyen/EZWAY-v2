@@ -2,13 +2,14 @@ import { createMockKsnResponse, normalizeKsnResponse } from '../../../lib/ksn-tr
 import type { NormalizedTracking } from '../../../lib/ksn-tracking';
 import { normalizeNamDeHtml } from '../../../lib/nam-de-tracking';
 import { lookupZat } from '../../../lib/zat-tracking';
+import {createRateLimiter,trackingClientKey,validTrackingCode,readBoundedText,securityHeaders,fetchTrustedPartner} from '../../../lib/public-security';
 
 const WINDOW_MS = 60_000;
 const MAX_REQUESTS = 20;
 const UPSTREAM_TIMEOUT_MS = 12_000;
 const NAM_DE_TIMEOUT_MS = 9_000;
 const NAM_DE_MAX_HTML_BYTES = 300_000;
-const requestBuckets = new Map<string, { count: number; resetAt: number }>();
+const limiter = createRateLimiter(MAX_REQUESTS, WINDOW_MS);
 const namDeCache = new Map<string, { expiresAt: number; tracking: NormalizedTracking | null }>();
 
 type LookupResult =
@@ -20,33 +21,13 @@ function json(body: unknown, status = 200, extraHeaders: Record<string, string> 
   return Response.json(body, {
     status,
     headers: {
-      'Cache-Control': 'no-store',
+      ...securityHeaders,
+      'Cache-Control': 'private, no-store',
+      'X-Robots-Tag': 'noindex, nofollow, noarchive',
       'X-Content-Type-Options': 'nosniff',
       ...extraHeaders,
     },
   });
-}
-
-function clientIdentifier(request: Request) {
-  return (
-    request.headers.get('cf-connecting-ip') ??
-    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
-    'anonymous'
-  );
-}
-
-function consumeRateLimit(identifier: string) {
-  const now = Date.now();
-  const existing = requestBuckets.get(identifier);
-  if (!existing || existing.resetAt <= now) {
-    requestBuckets.set(identifier, { count: 1, resetAt: now + WINDOW_MS });
-    return { allowed: true, retryAfter: 0 };
-  }
-  if (existing.count >= MAX_REQUESTS) {
-    return { allowed: false, retryAfter: Math.max(1, Math.ceil((existing.resetAt - now) / 1000)) };
-  }
-  existing.count += 1;
-  return { allowed: true, retryAfter: 0 };
 }
 
 function isNotFoundResponse(payload: unknown) {
@@ -80,7 +61,7 @@ async function lookupKsn(code: string, apiKey: string | undefined): Promise<Look
   try {
     const upstreamUrl = new URL('https://kango-post.com/api/get-tracking');
     upstreamUrl.searchParams.set('code', code);
-    const response = await fetch(upstreamUrl, {
+    const response = await fetchTrustedPartner(upstreamUrl, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -89,7 +70,7 @@ async function lookupKsn(code: string, apiKey: string | undefined): Promise<Look
       signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     });
 
-    const responseText = await response.text();
+    const responseText = await readBoundedText(response);
     let parsedResponse: unknown;
     try {
       parsedResponse = JSON.parse(responseText);
@@ -120,13 +101,12 @@ async function lookupNamDe(code: string): Promise<LookupResult> {
   try {
     const upstreamUrl = new URL('https://global-tracking.info/');
     upstreamUrl.searchParams.set('order-code', code);
-    const response = await fetch(upstreamUrl, {
+    const response = await fetchTrustedPartner(upstreamUrl, {
       method: 'GET',
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'User-Agent': 'EZWAY-Tracking/1.0 (+https://ezway.vn)',
       },
-      redirect: 'follow',
       signal: AbortSignal.timeout(NAM_DE_TIMEOUT_MS),
     });
     if (!response.ok) return { kind: 'unavailable' };
@@ -134,13 +114,14 @@ async function lookupNamDe(code: string): Promise<LookupResult> {
     const contentLength = Number(response.headers.get('content-length') ?? 0);
     if (contentLength > NAM_DE_MAX_HTML_BYTES) return { kind: 'unavailable' };
 
-    const html = await response.text();
+    const html = await readBoundedText(response, NAM_DE_MAX_HTML_BYTES);
     if (new TextEncoder().encode(html).byteLength > NAM_DE_MAX_HTML_BYTES) {
       return { kind: 'unavailable' };
     }
 
     const tracking = normalizeNamDeHtml(html, code, upstreamUrl.toString());
     const delivered = tracking?.latestStatus.toLowerCase().includes('delivered') ?? false;
+    if (namDeCache.size >= 300) namDeCache.delete(namDeCache.keys().next().value!);
     namDeCache.set(code, {
       tracking,
       expiresAt: Date.now() + (tracking ? (delivered ? 12 * 60 * 60_000 : 5 * 60_000) : 60_000),
@@ -152,7 +133,7 @@ async function lookupNamDe(code: string): Promise<LookupResult> {
 }
 
 export async function GET(request: Request) {
-  const rateLimit = consumeRateLimit(clientIdentifier(request));
+  const rateLimit = limiter.consume(trackingClientKey(request));
   if (!rateLimit.allowed) {
     return json(
       { error: 'RATE_LIMITED' },
@@ -162,7 +143,7 @@ export async function GET(request: Request) {
   }
 
   const code = new URL(request.url).searchParams.get('code')?.trim() ?? '';
-  if (!code || code.length > 120 || /[\u0000-\u001F\u007F]/.test(code)) {
+  if (!validTrackingCode(code)) {
     return json({ error: 'INVALID_TRACKING_CODE' }, 400);
   }
 

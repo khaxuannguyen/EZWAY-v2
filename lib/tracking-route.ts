@@ -1,0 +1,3 @@
+function friendlyPart(value:string){const names:Record<string,string>={VN:'Việt Nam',VIETNAM:'Việt Nam','VIET NAM':'Việt Nam',US:'Mỹ',USA:'Mỹ',AU:'Úc',UK:'Anh',GB:'Anh',CA:'Canada',NZ:'New Zealand'};return names[value.trim().toUpperCase()]??value.trim();}
+/** Event locations describe the current scan, not the shipment destination. */
+export function shipmentRoute(data:{route?:string;country?:string}){if(data.route){const parts=data.route.split(/\s*(?:-?>|→)\s*/).filter(Boolean);return parts.map(friendlyPart).join(' → ');}return data.country?`Việt Nam → ${friendlyPart(data.country)}`:'Tuyến vận chuyển đang cập nhật';}

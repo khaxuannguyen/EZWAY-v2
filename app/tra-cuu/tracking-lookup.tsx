@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import { shipmentRoute } from '../../lib/tracking-route';
 import {
   AlertCircle,
   ArrowRight,
@@ -195,23 +196,6 @@ function formatEventTime(value: string) {
     timeZone: 'Asia/Ho_Chi_Minh',
   }).format(date);
   return `${datePart} • ${timePart}`;
-}
-
-function friendlyRoutePart(value: string) {
-  const key = value.trim().toUpperCase();
-  const names: Record<string, string> = { VN: 'Việt Nam', VIETNAM: 'Việt Nam', 'VIET NAM': 'Việt Nam', US: 'United States', USA: 'United States', AU: 'Australia', UK: 'United Kingdom' };
-  return names[key] ?? value.trim();
-}
-
-function formatRoute(value: string) {
-  const parts = value.split(/\s*(?:-?>|→)\s*/).filter(Boolean);
-  return parts.length > 1 ? parts.map(friendlyRoutePart).join(' → ') : friendlyRoutePart(value);
-}
-
-function shipmentRoute(data: TrackingData, preferLatestLocation = false) {
-  if (preferLatestLocation && data.timeline[0]?.location) return `Việt Nam → ${data.timeline[0].location}`;
-  if (data.route) return formatRoute(data.route);
-  return data.country ? `Việt Nam → ${friendlyRoutePart(data.country)}` : 'Tuyến vận chuyển đang cập nhật';
 }
 
 function statusHeadline(status: string, translatedStatus: string, location?: string) {
@@ -459,7 +443,7 @@ export function TrackingLookup() {
                   <div className="lookup-status-line"><div className="lookup-status-badge"><span /> {currentStatus.label}</div>{data.isMock && <em>Dữ liệu minh hoạ kiểm thử</em>}</div>
                   <h2>{latestHeadline}</h2>
                   {latestEvent?.time && <p className="lookup-latest-time">Cập nhật mới nhất: <strong>{formatEventTime(latestEvent.time)}</strong> <span>(giờ địa phương theo hãng giao)</span></p>}
-                  <div className="lookup-route-visual"><Plane size={18} /><span>Tuyến hiện tại</span><strong>{shipmentRoute(data, true)}</strong></div>
+                  <div className="lookup-route-visual"><Plane size={18} /><span>Tuyến vận chuyển</span><strong>{shipmentRoute(data)}</strong></div>
 
                   <div className="lookup-overview-meta">
                     {(data.packageCode || data.packageTrackingCode) && (

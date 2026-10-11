@@ -10,8 +10,8 @@ export function TrackingForm() {
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const normalizedCode = code.trim();
-    if (!normalizedCode) {
-      setValidation('Vui lòng nhập mã vận đơn trước khi tra cứu.');
+    if (!/^[A-Za-z\d][A-Za-z\d_-]{0,119}$/.test(normalizedCode)) {
+      setValidation('Nhập mã vận đơn hợp lệ, tối đa 120 ký tự chữ, số, dấu gạch ngang hoặc gạch dưới.');
       return;
     }
     window.location.assign(`/tra-cuu?code=${encodeURIComponent(normalizedCode)}`);

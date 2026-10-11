@@ -116,8 +116,8 @@ export async function lookupZat(code: string): Promise<ZatLookupResult> {
     if (cache.size >= MAX_CACHE_ENTRIES) cache.delete(cache.keys().next().value!);
     cache.set(code, { tracking, expiresAt: Date.now() + (tracking ? 5 * 60_000 : 60_000) });
     return tracking ? { kind: 'found', tracking } : { kind: 'not-found' };
-  } catch (error) {
-    console.warn('ZAT tracking upstream unavailable:', error instanceof Error ? error.message : 'Unknown error');
+  } catch {
+    console.warn('ZAT tracking upstream unavailable');
     return { kind: 'unavailable' };
   }
 }
