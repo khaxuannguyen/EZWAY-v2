@@ -1,0 +1,85 @@
+{
+  "generated": "2026-10-12",
+  "method": "Built-in imagegen; separate transparent side-elevation cutouts. No independently generated animation frames.",
+  "licensing": "Generated in this session; no stock purchase or claim of exclusive copyright / third-party trademark clearance.",
+  "assets": {
+    "body": {
+      "source": "exec-4049ae65-4378-49d3-8513-b6fce018cb84.png",
+      "sha256": "0471d5fd798ae98d08be542843e5de0d3941658cce700c9ca1ad991e82080bac",
+      "crop": {
+        "left": 53,
+        "top": 105,
+        "width": 1702,
+        "height": 693
+      },
+      "width": 1200,
+      "height": 489,
+      "bytes": 114208
+    },
+    "boom": {
+      "source": "exec-6cd4c1f5-583e-4e71-9183-dd4a7d41e1d7.png",
+      "sha256": "2d01eab34b5fc82713c0bbb7137dbe828dc4b6f1db701fe7bc8b748793cc8dfd",
+      "crop": {
+        "left": 31,
+        "top": 200,
+        "width": 2111,
+        "height": 357
+      },
+      "width": 1200,
+      "height": 203,
+      "bytes": 45720
+    },
+    "container": {
+      "source": "exec-2a700678-aae2-430c-892f-64a6eba5732c.png",
+      "sha256": "76c2a03f069a1058318312eaebd9a33026e8a8c0c221a2bbacb7b674ea40e3fe",
+      "crop": {
+        "left": 58,
+        "top": 77,
+        "width": 1798,
+        "height": 648
+      },
+      "width": 1200,
+      "height": 432,
+      "bytes": 72858
+    },
+    "truck": {
+      "source": "exec-8f112cee-a55a-41f4-b3c2-a4eea51c3b46.png",
+      "sha256": "bc697d56fe0867967253e1e5ebacc8a61ec6b42c91fc718426e80bbe0725ad1c",
+      "crop": {
+        "left": 20,
+        "top": 65,
+        "width": 2112,
+        "height": 537
+      },
+      "width": 1200,
+      "height": 305,
+      "bytes": 57060
+    },
+    "spreader": {
+      "source": "exec-f29a0708-2384-4d9f-874e-81815862cc1c.png",
+      "sha256": "0362b6bcb91078db21571e2cca838a8765a8475f021aee0c963d9561a65d3255",
+      "crop": {
+        "left": 66,
+        "top": 81,
+        "width": 2040,
+        "height": 554
+      },
+      "width": 1200,
+      "height": 326,
+      "bytes": 59900
+    },
+    "background": {
+      "source": "exec-6bc70ceb-a483-4134-99a7-0a1e89bf792c.png",
+      "sha256": "4d46c3dd0fc07e0a1961ecf90819d5f823bd09f2f6e6da31bbaa0e9fb46fe418",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1672,
+        "height": 941
+      },
+      "width": 1600,
+      "height": 900,
+      "bytes": 217770
+    }
+  }
+}

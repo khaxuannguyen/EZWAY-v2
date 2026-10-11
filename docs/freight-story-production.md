@@ -2,15 +2,15 @@
 
 Status on 2026-10-12: **PARTIAL DELIVERY, NOT ACCEPTED AS COMPLETE**.
 
-The website now uses two provisional photorealistic AI posters instead of schematic SVG machinery. Neither poster is a motion sequence. No mechanical action or takeoff animation is advertised as implemented. The old vector assets/timeline and their three tests remain in source for preservation, but are no longer imported by the website.
+Update after the critical mechanical-motion fix: SEA now renders independent photographic cutouts with a deterministic articulated 2.5D pickup/placement rig. Milestone 1 has native browser forward/reverse/hold proof on desktop and mobile. AIR remains a poster; SEA port transfer, vessel departure, AIR loading and AIR takeoff are not implemented. This is not full acceptance of the twelve-action freight story. The old posters, vector assets/timeline and tests remain preserved. See `sea-pickup-implementation.md`, `sea-rig-assets.json` and `sea-rig-prompts.json` for the new renderer and its limits.
 
 ## Available resources and selected strategy
 
 - Existing React/Vinext public application and GSAP/ScrollTrigger preserved.
 - Built-in image_gen created the two original poster illustrations. Complete prompts and provenance: `freight-asset-provenance.json`.
 - No Blender executable found on PATH or checked standard installation directories; no `.blend`, `.glb`, or `.fbx` freight models found in this workspace.
-- No licensed coherent sequence or matching separated layers available. No purchase, external license agreement, or production deployment performed.
-- Strategy C infrastructure: photographic poster fallback + scroll-controlled pre-rendered canvas sequences for mechanical motion. It does **not** fake motion using independently generated photographs or diagonal translation of a plane cutout.
+- Generated matching side-elevation cutouts now exist for the reach-stacker body, telescopic boom, spreader, container and truck, plus one empty environment plate. No licensed coherent SEA port/AIR rig or rendered sequence is available. No purchase, external license agreement, or production deployment performed.
+- Selected strategy C for SEA milestone 1: an actual articulated photographic 2.5D rig, with independent transforms, explicit hinge/wrist/chassis anchors, rotating tires and contact shadows. The canvas sequence infrastructure stays available for coherent future renders. AIR still has no motion; no diagonal plane-cutout movement has been substituted for takeoff.
 - Native generated sources are 1672×941, below the requested minimum desktop source width of 1920. They are not silently upscaled. Replace with ≥1920×1080 mastered posters before final visual acceptance.
 - AIR poster is intentionally a cropped composition; its wing extends beyond the image edge. AI details are provisional, not evidence of actual fleet ownership or mechanically verified operations.
 

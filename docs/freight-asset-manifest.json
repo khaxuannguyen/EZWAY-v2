@@ -1,7 +1,7 @@
 {
-  "version": 1,
-  "status": "partial-poster-only",
-  "strategy": "C: photographic posters plus pending physically consistent pre-rendered sequences",
+  "version": 2,
+  "status": "partial-sea-pickup-rig-air-poster",
+  "strategy": "C: articulated photographic 2.5D SEA pickup rig; coherent port and AIR rendering assets still pending",
   "posters": [
     {
       "id": "sea-poster-desktop",
@@ -149,5 +149,64 @@
   "source": "built-in image_gen; full prompts in freight-asset-provenance.json",
   "stockPurchases": 0,
   "externalRuntimeAssetServers": 0,
-  "referenceAssetsCopied": 0
+  "referenceAssetsCopied": 0,
+  "rig": {
+    "milestone": 1,
+    "mode": "sea",
+    "manifest": "sea-rig-assets.json",
+    "prompts": "sea-rig-prompts.json",
+    "mechanicalActions": [
+      "approach",
+      "lock",
+      "lift",
+      "position",
+      "lower",
+      "release"
+    ],
+    "assets": [
+      {
+        "id": "body",
+        "path": "/assets/freight-story/sea/rig-v1/body.webp",
+        "width": 1200,
+        "height": 489,
+        "bytes": 114208
+      },
+      {
+        "id": "boom",
+        "path": "/assets/freight-story/sea/rig-v1/boom.webp",
+        "width": 1200,
+        "height": 203,
+        "bytes": 45720
+      },
+      {
+        "id": "container",
+        "path": "/assets/freight-story/sea/rig-v1/container.webp",
+        "width": 1200,
+        "height": 432,
+        "bytes": 72858
+      },
+      {
+        "id": "truck",
+        "path": "/assets/freight-story/sea/rig-v1/truck.webp",
+        "width": 1200,
+        "height": 305,
+        "bytes": 57060
+      },
+      {
+        "id": "spreader",
+        "path": "/assets/freight-story/sea/rig-v1/spreader.webp",
+        "width": 1200,
+        "height": 326,
+        "bytes": 59900
+      },
+      {
+        "id": "background",
+        "path": "/assets/freight-story/sea/rig-v1/background.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 217770
+      }
+    ],
+    "totalBytes": 567516
+  }
 }

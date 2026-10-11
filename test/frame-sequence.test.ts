@@ -6,6 +6,7 @@ test('scroll seeks clamp safely and reverse to the exact same numbered frame', (
   assert.equal(frameAtProgress(-2, 192), 0);
   assert.equal(frameAtProgress(2, 192), 191);
   assert.equal(frameAtProgress(NaN, 192), 0);
+  assert.equal(frameAtProgress(.5, 192), 96);
   const frame = frameAtProgress(.4, 192);
   frameAtProgress(1, 192); frameAtProgress(0, 192);
   assert.equal(frameAtProgress(.4, 192), frame);

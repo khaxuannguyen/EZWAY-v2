@@ -4,13 +4,13 @@ import type { FreightMode } from './story-config';
 export interface FreightVisual {
   poster: { desktop: string; mobile: string; width: number; height: number; alt: string };
   sequence?: FrameSequence;
-  status: 'poster-only' | 'sequence-approved';
+  status: 'poster-only' | 'sequence-approved' | 'pickup-rig';
 }
 
-// Still posters are deliberately not advertised as mechanical animation.
+// SEA has an independent photographic pickup rig. AIR remains a still.
 // Only attach a sequence after the production asset gate in docs/freight-story-production.md.
 export const FREIGHT_VISUALS: Record<FreightMode, FreightVisual> = {
-  sea: { status: 'poster-only', poster: {
+  sea: { status: 'pickup-rig', poster: {
     desktop: '/assets/freight-story/sea/posters/terminal-1672.webp',
     mobile: '/assets/freight-story/sea/posters/terminal-960.webp',
     width: 1672, height: 941,

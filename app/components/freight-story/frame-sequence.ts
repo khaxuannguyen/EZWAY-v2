@@ -12,7 +12,7 @@ export interface FrameSequence {
   phaseRanges?: ReadonlyArray<readonly [number, number]>;
 }
 export const clampProgress = (value: number) => Number.isFinite(value) ? Math.max(0, Math.min(1, value)) : 0;
-export const frameAtProgress = (progress: number, count: number) => Math.floor(clampProgress(progress) * Math.max(0, count - 1));
+export const frameAtProgress = (progress: number, count: number) => Math.round(clampProgress(progress) * Math.max(0, count - 1));
 export const frameUrl = (variant: FrameVariant, index: number) => variant.template.replace('{frame}', String(index).padStart(4, '0'));
 export function frameAtStoryProgress(progress: number, sequence: FrameSequence) {
   if (!sequence.phaseRanges) return frameAtProgress(progress, sequence.count);
