@@ -1,0 +1,103 @@
+{
+  "assets": [
+    {
+      "name": "crane",
+      "group": "sea/port-v1",
+      "file": "exec-670589ec-0c95-4169-a32a-340481c8bfbe.png",
+      "transparent": true,
+      "maxWidth": 1600
+    },
+    {
+      "name": "trolley",
+      "group": "sea/port-v1",
+      "file": "exec-97d0ce5c-9d44-43fd-8192-9117bdd1f172.png",
+      "transparent": true,
+      "maxWidth": 1600
+    },
+    {
+      "name": "vessel",
+      "group": "sea/port-v1",
+      "file": "exec-1c94ac42-a8ac-424b-97c7-156af81c89b8.png",
+      "transparent": true,
+      "maxWidth": 2000
+    },
+    {
+      "name": "environment",
+      "group": "sea/port-v1",
+      "file": "exec-3cf29910-2f77-4ddf-9cb4-05b25ab838d7.png",
+      "transparent": false,
+      "maxWidth": 1600
+    },
+    {
+      "name": "aircraft",
+      "group": "air/rig-v1",
+      "file": "exec-f1ae22e1-bb51-4801-a237-52c7d7f00bbb.png",
+      "transparent": true,
+      "maxWidth": 2000
+    },
+    {
+      "name": "door",
+      "group": "air/rig-v1",
+      "file": "exec-0f2b2a6e-da62-4034-a978-1dea11c75acd.png",
+      "transparent": true,
+      "maxWidth": 1200
+    },
+    {
+      "name": "loader",
+      "group": "air/rig-v1",
+      "file": "exec-1bf31c2e-6d22-4214-936c-13e77c513cee.png",
+      "transparent": true,
+      "maxWidth": 1200
+    },
+    {
+      "name": "platform",
+      "group": "air/rig-v1",
+      "file": "exec-11b3d876-d267-49cd-8bd3-4f6361120d56.png",
+      "transparent": true,
+      "maxWidth": 1200
+    },
+    {
+      "name": "arm",
+      "group": "air/rig-v1",
+      "file": "exec-035e5247-4b80-4175-b46b-96a2801d3f02.png",
+      "transparent": true,
+      "maxWidth": 1200
+    },
+    {
+      "name": "pallet",
+      "group": "air/rig-v1",
+      "file": "exec-10540d6c-1981-403c-982e-583e35c45922.png",
+      "transparent": true,
+      "maxWidth": 1200
+    },
+    {
+      "name": "mainGear",
+      "group": "air/rig-v1",
+      "file": "exec-b33cc6e7-42e4-47e6-a27a-033589658c97.png",
+      "transparent": true,
+      "maxWidth": 1200
+    },
+    {
+      "name": "noseGear",
+      "group": "air/rig-v1",
+      "file": "exec-1b3411f9-6c86-4ecb-950d-22e0f3191774.png",
+      "transparent": true,
+      "maxWidth": 1200
+    },
+    {
+      "name": "environment",
+      "group": "air/rig-v1",
+      "file": "exec-636002bb-eb81-4b21-9c22-17b534f0c3c1.png",
+      "transparent": false,
+      "maxWidth": 1600
+    },
+    {
+      "name": "sky",
+      "group": "air/rig-v1",
+      "file": "exec-96d6855c-1233-46ea-9248-fe2828128f73.png",
+      "transparent": false,
+      "maxWidth": 1600
+    }
+  ],
+  "outputManifest": "docs/freight-rig-extension-assets.json"
+}

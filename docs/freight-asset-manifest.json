@@ -1,7 +1,7 @@
 {
-  "version": 2,
-  "status": "partial-sea-pickup-rig-air-poster",
-  "strategy": "C: articulated photographic 2.5D SEA pickup rig; coherent port and AIR rendering assets still pending",
+  "version": 3,
+  "status": "sea-and-air-component-rigs-native-motion-verified",
+  "strategy": "C: articulated photographic 2.5D SEA pickup/shipping and AIR loading/takeoff",
   "posters": [
     {
       "id": "sea-poster-desktop",
@@ -208,5 +208,110 @@
       }
     ],
     "totalBytes": 567516
+  },
+  "componentRigExtension": {
+    "provenance": "freight-rig-extension-assets.json",
+    "implementation": "freight-rigs-implementation.md",
+    "assets": [
+      {
+        "id": "sea/port-v1/crane",
+        "path": "/assets/freight-story/sea/port-v1/crane.webp",
+        "width": 1513,
+        "height": 958,
+        "bytes": 201634
+      },
+      {
+        "id": "sea/port-v1/trolley",
+        "path": "/assets/freight-story/sea/port-v1/trolley.webp",
+        "width": 1600,
+        "height": 541,
+        "bytes": 152644
+      },
+      {
+        "id": "sea/port-v1/vessel",
+        "path": "/assets/freight-story/sea/port-v1/vessel.webp",
+        "width": 2000,
+        "height": 628,
+        "bytes": 173022
+      },
+      {
+        "id": "sea/port-v1/environment",
+        "path": "/assets/freight-story/sea/port-v1/environment.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 268982
+      },
+      {
+        "id": "air/rig-v1/aircraft",
+        "path": "/assets/freight-story/air/rig-v1/aircraft.webp",
+        "width": 2000,
+        "height": 555,
+        "bytes": 105974
+      },
+      {
+        "id": "air/rig-v1/door",
+        "path": "/assets/freight-story/air/rig-v1/door.webp",
+        "width": 1200,
+        "height": 997,
+        "bytes": 74928
+      },
+      {
+        "id": "air/rig-v1/loader",
+        "path": "/assets/freight-story/air/rig-v1/loader.webp",
+        "width": 1200,
+        "height": 337,
+        "bytes": 77994
+      },
+      {
+        "id": "air/rig-v1/platform",
+        "path": "/assets/freight-story/air/rig-v1/platform.webp",
+        "width": 1200,
+        "height": 124,
+        "bytes": 48146
+      },
+      {
+        "id": "air/rig-v1/arm",
+        "path": "/assets/freight-story/air/rig-v1/arm.webp",
+        "width": 1200,
+        "height": 95,
+        "bytes": 29956
+      },
+      {
+        "id": "air/rig-v1/pallet",
+        "path": "/assets/freight-story/air/rig-v1/pallet.webp",
+        "width": 1200,
+        "height": 606,
+        "bytes": 260004
+      },
+      {
+        "id": "air/rig-v1/mainGear",
+        "path": "/assets/freight-story/air/rig-v1/mainGear.webp",
+        "width": 1092,
+        "height": 1093,
+        "bytes": 251804
+      },
+      {
+        "id": "air/rig-v1/noseGear",
+        "path": "/assets/freight-story/air/rig-v1/noseGear.webp",
+        "width": 663,
+        "height": 1481,
+        "bytes": 133318
+      },
+      {
+        "id": "air/rig-v1/environment",
+        "path": "/assets/freight-story/air/rig-v1/environment.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 154012
+      },
+      {
+        "id": "air/rig-v1/sky",
+        "path": "/assets/freight-story/air/rig-v1/sky.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 143524
+      }
+    ],
+    "totalBytes": 2075942
   }
 }

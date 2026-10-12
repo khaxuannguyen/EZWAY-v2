@@ -4,10 +4,10 @@ import type { FreightMode } from './story-config';
 export interface FreightVisual {
   poster: { desktop: string; mobile: string; width: number; height: number; alt: string };
   sequence?: FrameSequence;
-  status: 'poster-only' | 'sequence-approved' | 'pickup-rig';
+  status: 'poster-only' | 'sequence-approved' | 'pickup-rig' | 'air-rig';
 }
 
-// SEA has an independent photographic pickup rig. AIR remains a still.
+// SEA/AIR use independent articulated photographic rigs; original posters remain preserved.
 // Only attach a sequence after the production asset gate in docs/freight-story-production.md.
 export const FREIGHT_VISUALS: Record<FreightMode, FreightVisual> = {
   sea: { status: 'pickup-rig', poster: {
@@ -16,7 +16,7 @@ export const FREIGHT_VISUALS: Record<FreightMode, FreightVisual> = {
     width: 1672, height: 941,
     alt: 'Minh hoạ photorealistic bãi container, reach stacker và đầu kéo tại cảng; hình tạo bằng AI, không phải đội phương tiện EZWAY.',
   } },
-  air: { status: 'poster-only', poster: {
+  air: { status: 'air-rig', poster: {
     desktop: '/assets/freight-story/air/posters/apron-1672.webp',
     mobile: '/assets/freight-story/air/posters/apron-960.webp',
     width: 1672, height: 941,

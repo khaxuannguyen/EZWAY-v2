@@ -1,8 +1,10 @@
 # EZWAY freight — asset gate and production specification
 
-Status on 2026-10-12: **PARTIAL DELIVERY, NOT ACCEPTED AS COMPLETE**.
+Latest status on 2026-10-12: **SEA and AIR component motion delivered and verified under Strategy C (photographic 2.5D)**.
 
-Update after the critical mechanical-motion fix: SEA now renders independent photographic cutouts with a deterministic articulated 2.5D pickup/placement rig. Milestone 1 has native browser forward/reverse/hold proof on desktop and mobile. AIR remains a poster; SEA port transfer, vessel departure, AIR loading and AIR takeoff are not implemented. This is not full acceptance of the twelve-action freight story. The old posters, vector assets/timeline and tests remain preserved. See `sea-pickup-implementation.md`, `sea-rig-assets.json` and `sea-rig-prompts.json` for the new renderer and its limits.
+See `freight-rigs-implementation.md` for the continuation of all five milestones, independent mechanical parts, native desktop/mobile proof and measured limits. The historical poster/frame specifications below are preserved for reference and possible future 3D rendering upgrades.
+
+Historical status before the current continuation: SEA now renders independent photographic cutouts with a deterministic articulated 2.5D pickup/placement rig. Milestone 1 has native browser forward/reverse/hold proof on desktop and mobile. AIR remains a poster; SEA port transfer, vessel departure, AIR loading and AIR takeoff are not implemented. This is not full acceptance of the twelve-action freight story. The old posters, vector assets/timeline and tests remain preserved. See `sea-pickup-implementation.md`, `sea-rig-assets.json` and `sea-rig-prompts.json` for the new renderer and its limits.
 
 ## Available resources and selected strategy
 
