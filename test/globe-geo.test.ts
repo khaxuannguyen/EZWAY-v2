@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { geoToCartesian,greatCirclePoint,routeLift,routeViewDirection,globeOrigin,globeDestinations } from '../lib/globe-geo.ts';
+const close=(a:number,b:number)=>assert.ok(Math.abs(a-b)<1e-8);
+test('Earth coordinates match equirectangular sphere axes and hemisphere conventions',()=>{const zero=geoToCartesian(0,0),east=geoToCartesian(0,90),north=geoToCartesian(90,0);close(zero[0],1);close(east[2],-1);close(north[1],1);for(const d of globeDestinations)close(Math.hypot(...geoToCartesian(d.lat,d.lon)),1);});
+test('all routes begin in HCMC, end at their real city, rise above Earth and reverse symmetrically',()=>{const a=geoToCartesian(globeOrigin.lat,globeOrigin.lon);for(const d of globeDestinations){const b=geoToCartesian(d.lat,d.lon),lift=routeLift(a,b);for(let j=0;j<3;j++){close(greatCirclePoint(a,b,0,lift)[j],a[j]);close(greatCirclePoint(a,b,1,lift)[j],b[j]);}for(let i=0;i<=100;i++){const t=i/100,p=greatCirclePoint(a,b,t,lift),reverse=greatCirclePoint(b,a,1-t,lift);assert.ok(Math.hypot(...p)>=1-1e-9);p.forEach((v,j)=>close(v,reverse[j]));}const view=routeViewDirection(b);assert.ok(a.reduce((s,v,j)=>s+v*view[j],0)>.29);assert.ok(b.reduce((s,v,j)=>s+v*view[j],0)>.29);}});
+test('coincident route is safe and ambiguous antipodal route fails explicitly',()=>{assert.deepEqual(greatCirclePoint([1,0,0],[1,0,0],.5),[1,0,0]);assert.throws(()=>greatCirclePoint([1,0,0],[-1,0,0],.5),/bearing/);});
