@@ -1,5 +1,7 @@
 # Public lead intake — acceptance checkpoint, 2026-10-12
 
+Historical checkpoint `94c9dcd`. Zalo group delivery has since been verified end-to-end; see [zalo-production-readiness.md](./zalo-production-readiness.md) for current acceptance and remaining rollout dependencies.
+
 ## Delivered
 
 One shared three-step route/cargo/contact wizard. Native accessible modal with focus restoration, Escape/backdrop close and scroll locking; responsive full-screen mobile. Existing landmark gallery retained. Six cards preselect US/CA/AU/NZ/GB/EU; EU requires a member country (all 27 confirmed by owner, list checked against [EU official countries](https://european-union.europa.eu/principles-countries-history/eu-countries_en)). Optional city/postcode, origin city, AIR/SEA/advice, optional measurements and unknown-weight selection. Required contact and explicit privacy consent. No invented quote, transit guarantee or cargo acceptance. No uploads enabled without storage.

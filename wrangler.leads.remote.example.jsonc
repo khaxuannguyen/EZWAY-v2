@@ -1,0 +1,10 @@
+// Copy to a private rollout config and replace IDs only after rollout approval.
+// This file is deliberately not runnable with placeholder IDs.
+{
+ "name":"ezway-public-leads-operations",
+ "compatibility_date":"2026-10-12",
+ "env":{
+  "staging":{"d1_databases":[{"binding":"EZWAY_LEADS_DB","database_name":"ezway-public-leads-staging","database_id":"REPLACE_WITH_STAGING_D1_UUID","migrations_dir":"migrations/leads"}]},
+  "production":{"d1_databases":[{"binding":"EZWAY_LEADS_DB","database_name":"ezway-public-leads-production","database_id":"REPLACE_WITH_PRODUCTION_D1_UUID","migrations_dir":"migrations/leads"}]}
+ }
+}

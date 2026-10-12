@@ -1,5 +1,7 @@
 # Public website lead intake — operations
 
+Historical checkpoint `94c9dcd`. Current Zalo delivery, timeout handling and rollout state are documented in [zalo-production-readiness.md](./zalo-production-readiness.md). The missing-chat-ID and retry descriptions below record the earlier state and are superseded by that report.
+
 ## Storage and deployment boundary
 
 Lead data belongs only to ezway.vn. D1 binding: `EZWAY_LEADS_DB`. Local database: `ezway-public-leads`, persisted at `.wrangler/state/v3/d1/`. This is a real SQLite/D1 local store, not an in-memory mock. No EZWAY OS API/database used.

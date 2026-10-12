@@ -3,11 +3,14 @@ import tailwindcss from '@tailwindcss/postcss';
 import vinext from 'vinext';
 import { defineConfig } from 'vite';
 import hostingConfig from './.openai/hosting.json';
+import { publicLeadBinding } from './lib/quotes/deployment-config';
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   '00000000-0000-4000-8000-000000000000';
 
 const { d1, r2 } = hostingConfig;
+const leadTarget=process.env.EZWAY_DEPLOY_TARGET||'local';
+const leadDatabase=publicLeadBinding(leadTarget,leadTarget==='staging'?process.env.EZWAY_LEADS_STAGING_DB_ID:process.env.EZWAY_LEADS_PRODUCTION_DB_ID);
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === 'seatbelt';
@@ -16,7 +19,7 @@ const localBindingConfig = {
   main: './worker.ts',
   compatibility_flags: ['nodejs_compat'],
   triggers: { crons: ['*/5 * * * *'] },
-  d1_databases: [{binding:'EZWAY_LEADS_DB',database_name:'ezway-public-leads',database_id:'00000000-0000-4000-8000-000000000001',migrations_dir:'migrations/leads'}, ...(d1
+  d1_databases: [leadDatabase, ...(d1
     ? [
         {
           binding: d1,

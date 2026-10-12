@@ -1,0 +1,4 @@
+export async function leadQueueHealth(db:D1Database,now=Date.now()){
+ const result=await db.prepare("SELECT SUM(CASE WHEN j.state='FAILED' THEN 1 ELSE 0 END) AS failed,SUM(CASE WHEN j.state='NEEDS_REVIEW' THEN 1 ELSE 0 END) AS needs_review,SUM(CASE WHEN j.state='WAITING_CONFIG' THEN 1 ELSE 0 END) AS waiting_config,SUM(CASE WHEN j.state IN ('PENDING','RETRY','PROCESSING','WAITING_CONFIG') AND q.created_at<? THEN 1 ELSE 0 END) AS overdue FROM lead_jobs j JOIN quote_requests q ON q.request_id=j.request_id").bind(new Date(now-15*60*1000).toISOString()).first<Record<string,number|null>>();
+ const counts={failed:result?.failed||0,needsReview:result?.needs_review||0,waitingConfig:result?.waiting_config||0,overdue:result?.overdue||0};return {...counts,requiresAttention:Object.values(counts).some(n=>n>0)};
+}
