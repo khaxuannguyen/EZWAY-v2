@@ -43,3 +43,11 @@ Live HTML Cache-Control no-store,must-revalidate; CSP is report-only, not enforc
 Workspace outputs/earth-globe/: production-motion-samples.json; prod-scroll-0..4.png; prod-air-takeoff.png; production-mobile-motion.json; prod-mobile-stuck.png; fixed-mobile-motion.json; fix-mobile-sea.png; fix-mobile-air.png; fix-mobile-globe.png; fix-desktop-sea.png; reduced-motion-local.json/jpg. Mobile samples from the first rapid pass precede late readiness; subsequent browser inspection proved decoded/ready but SEA progress0. Fixed samples are LOCAL, do not mislabel them production.
 
 Files: freight-story-section.tsx, sea-pickup-rig.tsx, air-freight-rig.tsx, globe.tsx, hero-globe/earth-engine.ts, lib/animation-diagnostics.ts and test/animation-diagnostics.test.ts. New commit is the checkpoint containing this report, git log -1.
+
+## Approved rollout and production-after-fix acceptance
+
+Owner explicitly approved deployment of41aa56b. Saved Sites version21 from41aa56be88553d227d1feb7f74ee2dd9e5b40bd5; deployment appgdep_6accd9b5529c8191a2dadb540eb5284f succeeded2026-10-12T13:00:27Z. Existing public audience, custom domain and environment revision2 preserved. No storage/secret configuration changes or production test lead.
+
+Actual V21 production mobile rapid-load/scroll restored SEA stage progress1/timelineProgress1/phase5 and container on departing vessel; version20 reproduced stale stage0. Subsequent scroll from Hero: SEA.859564→1, AIR.124923→.874148; pallet4041→2970, aircraft x205→1571, y0→-192.32, pitch0→-10.2344deg. Reverse AIR→.125042 restores ground aircraft. Globe motionPreference normal / playing / visibletrue / runningtrue; mobile30FPS,1329frames, cpu.28ms/max.60ms. Desktop WebGL initialized normally with live frame increments, no console errors. Raw samples production-v21-motion.json and images production-v21-sea/air.png.
+
+The production freight synchronization fix is verified. Owner's specific Chrome laptop Globe root still requires owner confirmation/diagnostic state: connected browser tests cannot establish what the external session reports. An explicit request for laptop Ctrl+Shift+R feedback was sent after deployment. Do not equate working mobile or connected Chromium with a confirmed fix on that laptop. No whole-cache purge performed; browser recording and direct external Chrome connection remain unavailable.
