@@ -32,7 +32,7 @@ export default function HomePage(){return <div className="ez-home" id="top"><Sit
     ['Cước vận chuyển được tính thế nào?','Phụ thuộc điểm đến, loại hàng, khối lượng thực tế hoặc quy đổi và điều kiện giao nhận. Website không đưa ra mức giá cố định khi chưa kiểm tra lô hàng.'],
     ['Khi nào có thể nhận được hàng?','Thời gian dự kiến cần được xác nhận trong tư vấn. Lịch khai thác, kiểm tra hải quan và giao nhận có thể ảnh hưởng hành trình.'],
     ['Mã tracking chưa có cập nhật thì làm gì?','Kiểm tra lại mã và thời điểm cập nhật. Liên hệ EZWAY nếu cần đối chiếu; dữ liệu tra cứu phụ thuộc thông tin từ đối tác.'],
-    ['Biểu mẫu có gửi yêu cầu ngay không?','Biểu mẫu giúp bạn chuẩn bị và sao chép nội dung để gửi qua kênh liên hệ. Trang sẽ thông báo rõ kết quả; việc điền biểu mẫu chưa tạo một yêu cầu trên máy chủ.']
+    ['Biểu mẫu có gửi yêu cầu ngay không?','Form tư vấn vận chuyển lưu yêu cầu khi bạn bấm gửi và máy chủ xác nhận bằng mã EZWQ. Form mua hộ hiện vẫn giúp chuẩn bị nội dung để bạn chủ động liên hệ.']
   ]}/></div></section>
   <section className="ez-final-cta" id="lien-he"><div className="ez-container"><p className="ez-eyebrow">MOVING MADE EASY</p><h2>Sẵn sàng cho<br/><span>hành trình tiếp theo?</span></h2><div className="ez-actions"><a className="ez-button" href="tel:0523666966" data-magnetic>Gọi EZWAY <Phone size={19}/></a><a className="ez-button ez-button-outline" href="/lien-he">Thông tin liên hệ <ArrowUpRight size={18}/></a></div><p className="ez-final-address"><MapPin size={16}/>112/40 Thạnh Xuân 22, Thới An, TP. Hồ Chí Minh</p><details className="ez-form-details"><summary>Chuẩn bị nội dung tư vấn</summary><ConsultationForm variant="contact"/></details></div></section>
 </main><SiteFooter/></div>;}

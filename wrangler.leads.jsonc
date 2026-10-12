@@ -1,0 +1,5 @@
+{
+  "name": "ezway-public-leads-local",
+  "compatibility_date": "2026-10-12",
+  "d1_databases": [{"binding":"EZWAY_LEADS_DB","database_name":"ezway-public-leads","database_id":"00000000-0000-4000-8000-000000000001","migrations_dir":"migrations/leads"}]
+}

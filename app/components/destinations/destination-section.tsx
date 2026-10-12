@@ -13,7 +13,7 @@ export function DestinationSection() {
       <div className="ez-destination-gallery" role="list" aria-label="Các điểm đến quốc tế">
         {destinationRoutes.map((route, index) => {
           const asset = `/assets/destinations/v1/${route.code.toLowerCase()}`;
-          return <div role="listitem" className="ez-destination-item" key={route.code}><a className="ez-destination-card" href="/gia-cuoc#yeu-cau" aria-label={`Nhận tư vấn tuyến đi ${route.name}`}>
+          return <div role="listitem" className="ez-destination-item" key={route.code}><a className="ez-destination-card" href={`/gia-cuoc?destination=${route.code}&source=destination_gallery#yeu-cau`} data-quote-destination={route.code} data-quote-source="destination_gallery" aria-label={`Nhận tư vấn tuyến đi ${route.name}`}>
             <img className="ez-destination-photo" src={`${asset}-960.webp`} srcSet={`${asset}-600.webp 600w, ${asset}-960.webp 960w`} sizes="(max-width: 650px) 84vw, (max-width: 1000px) 45vw, 400px" width="960" height="1200" alt={`Hình minh hoạ ${route.landmark}`} loading="lazy" decoding="async"/>
             <div className="ez-destination-top"><span className="ez-destination-flag"><img src={`/assets/destinations/v1/flags/${route.code.toLowerCase()}.svg`} width="30" height="20" alt=""/>{route.code === 'EU' ? 'ĐA QUỐC GIA' : route.name}</span><span className="ez-destination-route">VN / 0{index + 1}</span></div>
             <div className="ez-destination-content"><div className="ez-destination-title"><span className="ez-destination-code" aria-hidden="true">{route.code}</span><h3>{route.name}</h3></div><p>{route.copy}</p><span className="ez-destination-link">Tư vấn tuyến<span className="ez-destination-arrow"><ArrowUpRight size={20}/></span></span></div>

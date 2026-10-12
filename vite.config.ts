@@ -13,9 +13,10 @@ const { d1, r2 } = hostingConfig;
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === 'seatbelt';
 
 const localBindingConfig = {
-  main: 'vinext/server/app-router-entry',
+  main: './worker.ts',
   compatibility_flags: ['nodejs_compat'],
-  d1_databases: d1
+  triggers: { crons: ['*/5 * * * *'] },
+  d1_databases: [{binding:'EZWAY_LEADS_DB',database_name:'ezway-public-leads',database_id:'00000000-0000-4000-8000-000000000001',migrations_dir:'migrations/leads'}, ...(d1
     ? [
         {
           binding: d1,
@@ -23,7 +24,7 @@ const localBindingConfig = {
           database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
         },
       ]
-    : [],
+    : [])],
   r2_buckets: r2
     ? [
         {
