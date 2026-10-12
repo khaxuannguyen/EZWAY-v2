@@ -1,3 +1,4 @@
+import { toPublicTracking } from '../../../lib/public-tracking';
 import { createMockKsnResponse, normalizeKsnResponse } from '../../../lib/ksn-tracking';
 import type { NormalizedTracking } from '../../../lib/ksn-tracking';
 import { normalizeNamDeHtml } from '../../../lib/nam-de-tracking';
@@ -154,7 +155,7 @@ export async function GET(request: Request) {
 
   if (/^ZVN\d+$/i.test(code)) {
     const zat = await lookupZat(code);
-    if (zat.kind === 'found') return json({ tracking: zat.tracking });
+    if (zat.kind === 'found') return json({ tracking: toPublicTracking(zat.tracking, 'zat') });
     return zat.kind === 'not-found'
       ? json({ found: false }, 404)
       : json({ error: 'UPSTREAM_UNAVAILABLE' }, 502);
@@ -162,12 +163,12 @@ export async function GET(request: Request) {
 
   if (/^\d{10}$/.test(code)) {
     namDe = await lookupNamDe(code);
-    if (namDe.kind === 'found') return json({ tracking: namDe.tracking });
+    if (namDe.kind === 'found') return json({ tracking: toPublicTracking(namDe.tracking, 'nam-de') });
     ksn = await lookupKsn(code, process.env.KSN_TRACKING_API_KEY);
-    if (ksn.kind === 'found') return json({ tracking: ksn.tracking });
+    if (ksn.kind === 'found') return json({ tracking: toPublicTracking(ksn.tracking, 'ksn') });
   } else {
     ksn = await lookupKsn(code, process.env.KSN_TRACKING_API_KEY);
-    if (ksn.kind === 'found') return json({ tracking: ksn.tracking });
+    if (ksn.kind === 'found') return json({ tracking: toPublicTracking(ksn.tracking, 'ksn') });
     namDe = { kind: 'not-found' };
   }
 

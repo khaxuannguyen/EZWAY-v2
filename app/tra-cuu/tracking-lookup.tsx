@@ -2,6 +2,8 @@
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import type { PublicTracking } from '../../lib/public-tracking';
+import { isVerifiedLastMileUrl } from '../../lib/last-mile-carriers';
 import { shipmentRoute } from '../../lib/tracking-route';
 import {
   AlertCircle,
@@ -24,34 +26,7 @@ import {
   X,
 } from 'lucide-react';
 
-type TrackingEvent = { time: string; title: string; location?: string };
-type RelatedOrder = {
-  hawb?: string;
-  trackingCode?: string;
-  status?: string;
-  statusClass?: string;
-  trackingUrl?: string;
-  isCurrent: boolean;
-};
-type TrackingData = {
-  isMock?: boolean;
-  queryCode: string;
-  packageCode?: string;
-  packageTrackingCode?: string;
-  carrierCode?: string;
-  country?: string;
-  route?: string;
-  trackingUrl?: string;
-  statusClass?: string;
-  latestStatus: string;
-  service?: string;
-  totalPackages?: string;
-  lastMileCarrier?: string;
-  lastMileWebsite?: string;
-  estimatedDelivery?: string;
-  timeline: TrackingEvent[];
-  orderNumbers: RelatedOrder[];
-};
+type TrackingData = PublicTracking;
 
 type TrackingState = 'idle' | 'loading' | 'success' | 'not-found' | 'error';
 type Tone = 'success' | 'info' | 'warning' | 'danger' | 'muted';
@@ -397,9 +372,9 @@ export function TrackingLookup() {
     ? [
         { label: 'Tuyến vận chuyển', value: shipmentRoute(data), icon: Plane },
         { label: 'Dịch vụ', value: data.service, icon: Plane },
-        { label: 'Carrier giao cuối', value: data.lastMileCarrier, icon: Truck },
+        { label: 'Hãng giao chặng cuối', value: data.lastMileCarrier, icon: Truck },
+        { label: 'Mã giao chặng cuối', value: data.lastMileTrackingCode, icon: PackageCheck },
         { label: 'Số kiện', value: data.totalPackages, icon: Box },
-        { label: 'Mã carrier', value: data.carrierCode, icon: PackageCheck },
         { label: 'Dự kiến giao', value: data.estimatedDelivery, icon: Clock3 },
       ].filter((item) => item.value)
     : [];
@@ -452,7 +427,7 @@ export function TrackingLookup() {
                   </div>
 
                   {currentStatus.tone === 'success' && <div className="lookup-success-note"><CheckCircle2 size={20} /><span><strong>Đơn hàng đã giao thành công</strong> Cảm ơn bạn đã tin tưởng EZWAY.</span></div>}
-                  {currentStatus.attention && <div className="lookup-attention-note"><AlertCircle size={20} /><span><strong>Kiện hàng đang được cơ quan kiểm tra theo quy trình.</strong> EZWAY đang theo dõi cập nhật từ đối tác. Hiện bạn chưa cần thực hiện thêm thao tác nào. <a href="tel:0523666966">Liên hệ hỗ trợ đơn hàng</a></span></div>}
+                  {currentStatus.attention && <div className="lookup-attention-note"><AlertCircle size={20} /><span><strong>Kiện hàng đang được cơ quan kiểm tra theo quy trình.</strong> EZWAY đang theo dõi cập nhật hành trình. Hiện bạn chưa cần thực hiện thêm thao tác nào. <a href="tel:0523666966">Liên hệ hỗ trợ đơn hàng</a></span></div>}
                   {currentStatus.tone === 'danger' && <div className="lookup-danger-note"><AlertCircle size={20} /><span><strong>EZWAY đang sẵn sàng hỗ trợ kiểm tra.</strong> <a href="tel:0523666966">Liên hệ hỗ trợ đơn hàng</a></span></div>}
                 </div>
 
@@ -487,7 +462,7 @@ export function TrackingLookup() {
                               <div className="lookup-event-top"><time>{formatEventTime(event.time)}</time>{index === 0 && <span>Mới nhất</span>}</div>
                               <h3>{translatedTitle}</h3>
                               {event.location && <p><MapPin size={14} /> {event.location}</p>}
-                              <details className="lookup-source-event"><summary>Cập nhật từ hãng <ChevronDown size={14} /></summary><p>{event.title}</p></details>
+                              <details className="lookup-source-event"><summary>Thông tin cập nhật <ChevronDown size={14} /></summary><p>{event.title}</p></details>
                             </div>
                           </li>
                         );
@@ -506,7 +481,7 @@ export function TrackingLookup() {
                     <section className="lookup-information">
                       <div className="lookup-section-heading"><div><p>THÔNG TIN KIỆN HÀNG</p><h2>Tóm tắt lô hàng</h2></div></div>
                       <dl className="lookup-summary-list">{information.map(({ label, value, icon: Icon }) => <div key={label}><dt><Icon size={16} /> {label}</dt><dd>{value}</dd></div>)}</dl>
-                      {(data.lastMileWebsite || data.trackingUrl) && <a href={data.lastMileWebsite ?? data.trackingUrl} target="_blank" rel="noopener noreferrer">Theo dõi trên website hãng giao <ExternalLink size={15} /></a>}
+                      {isVerifiedLastMileUrl(data.lastMileCarrier,data.lastMileWebsite) ? <a href={data.lastMileWebsite} target="_blank" rel="noopener noreferrer" referrerPolicy="no-referrer">Tra cứu tại {data.lastMileCarrier} <ExternalLink size={15} /></a> : <p className="lookup-no-timeline">EZWAY sẽ cập nhật thông tin giao hàng tại đây khi có dữ liệu mới.</p>}
                     </section>
                   )}
 
@@ -520,10 +495,10 @@ export function TrackingLookup() {
                             <article key={`${order.hawb}-${order.trackingCode}-${index}`}>
                               <div className="lookup-related-head"><span className={`lookup-related-status lookup-event-${toneFromStatus(order.status ?? '', order.statusClass)}`}>{translateStatus(order.status ?? 'Đang cập nhật')}</span>{order.isCurrent && <strong>Đang theo dõi</strong>}</div>
                               {order.hawb && <p><span>HAWB</span><b>{order.hawb}</b></p>}
-                              {order.trackingCode && <p><span>Mã tracking cuối</span><b>{order.trackingCode}</b></p>}
+                              {order.trackingCode && <p><span>Mã tracking</span><b>{order.trackingCode}</b></p>}
                               <div className="lookup-related-actions">
                                 {orderCode && <button type="button" onClick={() => void copyValue(orderCode)}><Copy size={14} /> Sao chép</button>}
-                                {order.trackingUrl && <a href={order.trackingUrl} target="_blank" rel="noopener noreferrer">Theo dõi <ExternalLink size={13} /></a>}
+                                {order.lookupCode && <a href={`/tra-cuu?code=${encodeURIComponent(order.lookupCode)}`}>Xem hành trình <ArrowRight size={13} /></a>}
                               </div>
                             </article>
                           );
