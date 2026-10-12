@@ -62,7 +62,9 @@ function FreightStorySection({ mode }: { mode: FreightMode }) {
             id: `ezway-${mode}-story`, trigger: rigged && mobile ? stage : mobile ? root.querySelector('.freight-phases')! : root, pin: rigged && mobile ? stage : mobile ? false : panel,
             start: mobile && !rigged ? 'top 80%' : 'top 80px',
             end: mobile && !rigged ? 'bottom 70%' : () => `+=${Math.round(window.innerHeight * (rigged ? (mode === 'sea' ? (mobile ? 4.6 : 5.8) : (mobile ? 4.2 : 5.0)) : context.conditions?.desktop ? STORY_MOTION.desktopScroll : STORY_MOTION.tabletScroll))}`,
-            scrub: rigged ? true : STORY_MOTION.scrub, anticipatePin: 1, invalidateOnRefresh: true,
+            // Short catch-up smooths discrete wheel events; every mechanical
+            // part still uses the same timeline pose, including reverse seeks.
+            scrub: rigged ? .22 : STORY_MOTION.scrub, anticipatePin: 1, invalidateOnRefresh: true,
           } });
           const clock = { progress: 0 };
           for (let index = 0; index < 6; index++) timeline.addLabel(`${mode}-${index + 1}`, rigged ? (index ? boundaries[index - 1] * 6 : 0) : index);

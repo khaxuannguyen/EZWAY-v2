@@ -35,6 +35,7 @@ export function seaShippingPose(progress: number) {
     camera: { zoom, x: (587 - SEA_PORT.quayEdge * zoom) * transport, y: (380 - M.ground * zoom) * transport + cameraPanY },
     cameraPanY,
     stackerExit: 20000 * rigStep(p, .50, .59),
+    cargoShadowOpacity: pickup.shadowOpacity * (1 - lift),
     truckX, truckWheelAngle: (truckX + 850) / 28 * 180 / Math.PI,
     containerX: cargoX, containerY: cargoY,
     vesselX: SEA_PORT.vesselX + shipOffset, vesselY: SEA_PORT.vesselY, shipOffset,

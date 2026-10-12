@@ -39,7 +39,7 @@ export function SeaPickupRig() {
       parts.boom.style.transform = `translate3d(${s.pivotX + exit}px,${s.pivotY}px,0) rotate(${s.boomAngle}deg)`;
       parts.inner.style.transform = `translateX(${660.9 - s.boomLength}px)`;
       parts.shadow.style.transform = `translate3d(${full.containerX}px,${M.ground - 8}px,0) scaleX(${s.shadowScale})`;
-      parts.shadow.style.opacity = String(p > .715 ? 0 : s.shadowOpacity);
+      parts.shadow.style.opacity = String(full.cargoShadowOpacity);
       parts['body-shadow'].style.transform = `translate3d(${s.bodyX + exit}px,${M.ground - 9}px,0)`;
       parts['truck-shadow'].style.transform = `translate3d(${full.truckX}px,${M.ground - 8}px,0)`;
       parts.camera.style.transform = `translate3d(${full.camera.x}px,${full.camera.y}px,0) scale(${full.camera.zoom})`;

@@ -6,7 +6,9 @@ export const AIR_RIG = {
   doorX:3212,doorY:30,doorWidth:300,doorHeight:248,doorFloor:278,
   loaderWidth:620,loaderHeight:620*337/1200,
   platformOffset:112,platformWidth:340,platformHeight:340*124/1200,
-  basePivotY:520,armLength:330,armHeight:330*95/1106,armArtworkWidth:330*1200/1106,armArtworkLeft:-330*47/1106,
+  // The photographed chassis top rail is at world y=555. The earlier y=520
+  // anchor left both lower scissor bearings suspended above the frame.
+  basePivotY:555,armLength:330,armHeight:330*95/1106,armArtworkWidth:330*1200/1106,armArtworkLeft:-330*47/1106,
   palletWidth:235,palletHeight:235*606/1200,
   mainGearX:1834,mainGearHeight:290,mainGearWidth:290*1092/1093,
   mainWheelRadius:290*244/1093,

@@ -31,3 +31,6 @@ The local production preview is port 3002. Lighthouse reports measure the initia
 ## Limits and preserved alternatives
 
 Flat photographic parts cannot reproduce full depth or arbitrary camera angles. The camera therefore stays side-on; fine detail and relative machine scale remain illustrative. Higher fidelity would require a licensed 3D rig or one coherent render sequence. Historical 192-frame sequence specifications remain future optional upgrades, not a prerequisite for the delivered component-based Strategy C scenes. No unrelated independent generated frames or prerecorded video are used.
+
+
+Final visual audit update: see `final-visual-motion-audit.md`. Trailer/stacker clearance, scissor base contacts, crane shadow fade and .22-second common timeline smoothing have been corrected. Small cutouts were resampled from preserved originals. Premium photoreal and physical low-end-device acceptance are pending.

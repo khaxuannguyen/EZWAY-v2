@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "status": "sea-and-air-component-rigs-native-motion-verified",
+  "version": 4,
+  "status": "mechanical-motion-verified-premium-photoreal-acceptance-pending",
   "strategy": "C: articulated photographic 2.5D SEA pickup/shipping and AIR loading/takeoff",
   "posters": [
     {
@@ -223,9 +223,9 @@
       {
         "id": "sea/port-v1/trolley",
         "path": "/assets/freight-story/sea/port-v1/trolley.webp",
-        "width": 1600,
-        "height": 541,
-        "bytes": 152644
+        "width": 768,
+        "height": 260,
+        "bytes": 46248
       },
       {
         "id": "sea/port-v1/vessel",
@@ -251,51 +251,51 @@
       {
         "id": "air/rig-v1/door",
         "path": "/assets/freight-story/air/rig-v1/door.webp",
-        "width": 1200,
-        "height": 997,
-        "bytes": 74928
+        "width": 640,
+        "height": 532,
+        "bytes": 28600
       },
       {
         "id": "air/rig-v1/loader",
         "path": "/assets/freight-story/air/rig-v1/loader.webp",
-        "width": 1200,
-        "height": 337,
-        "bytes": 77994
+        "width": 960,
+        "height": 269,
+        "bytes": 53744
       },
       {
         "id": "air/rig-v1/platform",
         "path": "/assets/freight-story/air/rig-v1/platform.webp",
-        "width": 1200,
-        "height": 124,
-        "bytes": 48146
+        "width": 768,
+        "height": 80,
+        "bytes": 23104
       },
       {
         "id": "air/rig-v1/arm",
         "path": "/assets/freight-story/air/rig-v1/arm.webp",
-        "width": 1200,
-        "height": 95,
-        "bytes": 29956
+        "width": 768,
+        "height": 60,
+        "bytes": 14576
       },
       {
         "id": "air/rig-v1/pallet",
         "path": "/assets/freight-story/air/rig-v1/pallet.webp",
-        "width": 1200,
-        "height": 606,
-        "bytes": 260004
+        "width": 512,
+        "height": 258,
+        "bytes": 56310
       },
       {
         "id": "air/rig-v1/mainGear",
         "path": "/assets/freight-story/air/rig-v1/mainGear.webp",
-        "width": 1092,
-        "height": 1093,
-        "bytes": 251804
+        "width": 512,
+        "height": 512,
+        "bytes": 73390
       },
       {
         "id": "air/rig-v1/noseGear",
         "path": "/assets/freight-story/air/rig-v1/noseGear.webp",
-        "width": 663,
-        "height": 1481,
-        "bytes": 133318
+        "width": 384,
+        "height": 858,
+        "bytes": 63962
       },
       {
         "id": "air/rig-v1/environment",
@@ -312,6 +312,7 @@
         "bytes": 143524
       }
     ],
-    "totalBytes": 2075942
-  }
+    "totalBytes": 1407082
+  },
+  "finalVisualAudit": "final-visual-motion-audit.md"
 }

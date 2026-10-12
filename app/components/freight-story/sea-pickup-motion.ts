@@ -30,7 +30,9 @@ export function seaPickupPose(progress: number) {
   const approach = step(p, 0, .12), lock = step(p, .12, .24);
   const lift = step(p, .24, .48), traverse = step(p, .48, .68);
   const lower = step(p, .68, .86), release = step(p, .86, 1);
-  const bodyX = 1030 - 100 * approach - 110 * traverse + 60 * release;
+  // Keep the stacker outside the trailer's swept envelope. The telescopic
+  // section bridges the remaining transfer distance without overlapping tires.
+  const bodyX = 1030 - 100 * approach - 25 * traverse + 60 * release;
   const bodyY = SEA_PICKUP.ground - SEA_PICKUP.bodyHeight;
   const containerX = mix(620, 536, traverse);
   const groundTop = SEA_PICKUP.ground - SEA_PICKUP.containerHeight;
