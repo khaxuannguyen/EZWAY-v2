@@ -1,0 +1,50 @@
+[
+  {
+    "id": "us",
+    "prompt": "Use case: photorealistic-natural. Asset type: photographic destination background for a premium Vietnamese international logistics website, EZWAY. Generate a refined editorial travel/architecture photograph, PORTRAIT 4:5 composition, very high detail, natural restrained warm afternoon light, pale blue sky, deep maritime blue and neutral stone tones, subtly cinematic but genuinely photographic, no oversaturation, no cheap HDR, no illustration. Landmark must be unmistakable, well proportioned and fully visible in upper two thirds. Keep bottom quarter visually quiet for a dark text gradient that will be added in code. Strong midground architecture, not huge empty sky. No words, labels, typography, logos, flags, watermarks, borders or UI. No fictitious EZWAY building or branded vehicle. Subject: New York harbor with the Statue of Liberty prominent in the left-middle foreground, her entire crown and torch in frame, Lower Manhattan skyline across the water in the distance on the right. Credible photography, elegant landmark silhouette and blue harbor water. Composition suitable for a tall card, inviting golden natural light.",
+    "source": "exec-b7ea549c-7d50-4cf5-b32e-5e7f815f268a.png",
+    "tool": "OpenAI image_gen",
+    "type": "AI-generated illustrative destination, not documentary photography",
+    "flagSource": "https://flagcdn.com/us.svg"
+  },
+  {
+    "id": "ca",
+    "prompt": "Use case: photorealistic-natural. Asset type: photographic destination background for a premium Vietnamese international logistics website, EZWAY. Generate a refined editorial travel/architecture photograph, PORTRAIT 4:5 composition, very high detail, natural restrained warm afternoon light, pale blue sky, deep maritime blue and neutral stone tones, subtly cinematic but genuinely photographic, no oversaturation, no cheap HDR, no illustration. Landmark must be unmistakable, well proportioned and fully visible in upper two thirds. Keep bottom quarter visually quiet for a dark text gradient that will be added in code. Strong midground architecture, not huge empty sky. No words, labels, typography, logos, flags, watermarks, borders or UI. No fictitious EZWAY building or branded vehicle. Subject: Toronto skyline from the waterfront, CN Tower clearly prominent near centre, recognizably accurate Toronto architecture, Lake Ontario blue water in lower foreground. Clean professional city scene, fine realistic glass reflections, subtle warm evening light.",
+    "source": "exec-ea687e70-c35d-4f42-a40e-d21d13589635.png",
+    "tool": "OpenAI image_gen",
+    "type": "AI-generated illustrative destination, not documentary photography",
+    "flagSource": "https://flagcdn.com/ca.svg"
+  },
+  {
+    "id": "au",
+    "prompt": "Use case: photorealistic-natural. Asset type: photographic destination background for a premium Vietnamese international logistics website, EZWAY. Generate a refined editorial travel/architecture photograph, PORTRAIT 4:5 composition, very high detail, natural restrained warm afternoon light, pale blue sky, deep maritime blue and neutral stone tones, subtly cinematic but genuinely photographic, no oversaturation, no cheap HDR, no illustration. Landmark must be unmistakable, well proportioned and fully visible in upper two thirds. Keep bottom quarter visually quiet for a dark text gradient that will be added in code. Strong midground architecture, not huge empty sky. No words, labels, typography, logos, flags, watermarks, borders or UI. No fictitious EZWAY building or branded vehicle. Subject: Sydney Opera House large and unmistakable in the middle foreground viewed across Sydney Harbour, its complete white sail shells visible, Sydney Harbour Bridge in the background to one side. Refined luminous harbour photography, clean warm pearl architecture and restrained blue water.",
+    "source": "exec-a2141c68-a14d-46a7-9a3d-54ef59f25db5.png",
+    "tool": "OpenAI image_gen",
+    "type": "AI-generated illustrative destination, not documentary photography",
+    "flagSource": "https://flagcdn.com/au.svg"
+  },
+  {
+    "id": "nz",
+    "prompt": "Use case: photorealistic-natural. Asset type: photographic destination background for a premium Vietnamese international logistics website, EZWAY. Generate a refined editorial travel/architecture photograph, PORTRAIT 4:5 composition, very high detail, natural restrained warm afternoon light, pale blue sky, deep maritime blue and neutral stone tones, subtly cinematic but genuinely photographic, no oversaturation, no cheap HDR, no illustration. Landmark must be unmistakable, well proportioned and fully visible in upper two thirds. Keep bottom quarter visually quiet for a dark text gradient that will be added in code. Strong midground architecture, not huge empty sky. No words, labels, typography, logos, flags, watermarks, borders or UI. No fictitious EZWAY building or branded vehicle. Subject: Auckland waterfront skyline with Sky Tower large and unmistakable, photographed credibly from the harbour looking toward the city. Refined blue harbour in the lower foreground, modern buildings and green coastal accents, clean New Zealand city identity.",
+    "source": "exec-fd6b2df2-ec36-45bc-8c9a-733031d44423.png",
+    "tool": "OpenAI image_gen",
+    "type": "AI-generated illustrative destination, not documentary photography",
+    "flagSource": "https://flagcdn.com/nz.svg"
+  },
+  {
+    "id": "gb",
+    "prompt": "Use case: photorealistic-natural. Asset type: photographic destination background for a premium Vietnamese international logistics website, EZWAY. Generate a refined editorial travel/architecture photograph, PORTRAIT 4:5 composition, very high detail, natural restrained warm afternoon light, pale blue sky, deep maritime blue and neutral stone tones, subtly cinematic but genuinely photographic, no oversaturation, no cheap HDR, no illustration. Landmark must be unmistakable, well proportioned and fully visible in upper two thirds. Keep bottom quarter visually quiet for a dark text gradient that will be added in code. Strong midground architecture, not huge empty sky. No words, labels, typography, logos, flags, watermarks, borders or UI. No fictitious EZWAY building or branded vehicle. Subject: London Westminster and the Elizabeth Tower (Big Ben), complete recognizable clock tower in upper-middle frame, historic Houses of Parliament stretching beside it, River Thames foreground. Architectural editorial photograph with finely detailed stone, gentle warm afternoon light and calm navy-blue river.",
+    "source": "exec-af1b4a90-ba27-4af1-8be7-4488bc489d89.png",
+    "tool": "OpenAI image_gen",
+    "type": "AI-generated illustrative destination, not documentary photography",
+    "flagSource": "https://flagcdn.com/gb.svg"
+  },
+  {
+    "id": "eu",
+    "prompt": "Use case: photorealistic-natural. Asset type: photographic destination background for a premium Vietnamese international logistics website, EZWAY. Generate a refined editorial travel/architecture photograph, PORTRAIT 4:5 composition, very high detail, natural restrained warm afternoon light, pale blue sky, deep maritime blue and neutral stone tones, subtly cinematic but genuinely photographic, no oversaturation, no cheap HDR, no illustration. Landmark must be unmistakable, well proportioned and fully visible in upper two thirds. Keep bottom quarter visually quiet for a dark text gradient that will be added in code. Strong midground architecture, not huge empty sky. No words, labels, typography, logos, flags, watermarks, borders or UI. No fictitious EZWAY building or branded vehicle. Subject: an elegant European multi-city photographic editorial TRIPTYCH: left panel Paris Eiffel Tower with its full recognizable crown and structure, middle panel Berlin Brandenburg Gate with recognizable stone columns and quadriga, right panel Rome Colosseum with recognizable stacked arches. Three distinct geographically separate city photographs arranged as three subtle equal-width vertical panels in ONE portrait image, matched colour grading and natural warm daylight. Show architecture in upper two thirds of every panel. Do not merge the monuments into a fictitious shared skyline, do not represent Europe by only France. Subtle tidy panel boundaries, no frames or labels, sophisticated regional destination gallery.",
+    "source": "exec-f0bac8e4-5b89-49b9-aa02-66b0e2afac51.png",
+    "tool": "OpenAI image_gen",
+    "type": "AI-generated illustrative destination, not documentary photography",
+    "flagSource": "https://flagcdn.com/eu.svg"
+  }
+]
