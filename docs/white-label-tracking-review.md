@@ -1,6 +1,6 @@
 # White-label public tracking — release review, 2026-10-12
 
-Base clean e6b81a5. Implementation is LOCAL ONLY; production version21 remains untouched. Owner requires tests and explicit approval before deploying. No OS, Globe/SEA/AIR, D1, Zalo, credentials or business integration changes.
+Base clean e6b81a5. Owner approved release with “OKE deloy đi”. Implementation commit fbd7a2ff4bd88d3285a10ce26440cd7d273cae76 is deployed as production version22. No OS, Globe/SEA/AIR, D1, Zalo, credentials or business integration changes.
 
 ## Audit and implementation
 
@@ -42,4 +42,6 @@ Workspace outputs/white-label-tracking: browser-network-fixtures.json (synthetic
 
 Files: new lib/public-tracking.ts, lib/last-mile-carriers.ts, test/public-tracking.test.ts and test/helpers/tracking-api-harness.ts; changed API found responses, tracking UI/page metadata, homepage tracking content/benefit and About tracking bullet. No CSS/layout redesign or upstream-client/parser edits. Commit containing this report is git log -1.
 
-Release requires explicit owner approval; then package exact source through existing Sites public project, exclude ignored .dev.vars, preserve environment/binding/migrations and run post-deploy public JSON/DOM checks. Until approved release, live ezway.vn still runs the previous response/UI contract; do not claim this privacy layer has been deployed.
+Approved production release: Sites version22, saved version appgprj_6a8d2b66d65881918faf4f98f0830f4c~appgver_446bb499d1888191b6baccc52b483764; deployment appgdep_6acd0d0a20608191a37f290e9cc1b43b succeeded at 2026-10-12T16:39:05Z. Exact pushed source fbd7a2ff4bd88d3285a10ce26440cd7d273cae76. Archive validated without local secret files/development directories. Existing public audience, ezway.vn domain and environment revision2 preserved; no binding or migration changes.
+
+Post-deploy live https://ezway.vn/api/tracking checks: ZVN202622246 and ZVN202622248 return200/11events each; 320240648427 returns200/13events. All three public JSON bodies have zero upstream markers/URL fields/carrierCode and private, no-store headers. Production browser rendered ZVN202622248 result with five initially visible timeline events, no error state, no upstream DOM markers or upstream links. No real customer payload saved. Evidence: outputs/white-label-tracking/production-dom-v22.json and production-tracking-v22.png (blank production lookup page). Preview3002 restarted. This report update is documentation only; deployed runtime source remains fbd7a2f.
