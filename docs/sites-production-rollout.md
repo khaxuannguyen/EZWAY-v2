@@ -1,0 +1,9 @@
+# Sites production rollout preparation — 2026-10-12
+
+Owner authorized Git push and production deployment after Globe acceptance. Globe commit 141a3c5 pushed to GitHub branch ezway-public-redesign-2026. Sites confirms existing project appgprj_6a8d2b66d65881918faf4f98f0830f4c, public audience, https://ezway.vn, latest version19. Preserve Site identity/audience/domains; no OS access.
+
+Production preparation: declare logical EZWAY_LEADS_DB in existing hosting manifest. Sites provisions this project's dedicated D1 and substitutes hosted bindings through its supported deployment flow; do not use direct Wrangler deploy with local UUIDs. Wrangler production/staging UUID guard remains unchanged. Prevent duplicate local binding when manifest uses same logical name. Export existing 0001/0002 schema-only SQL into immutable Sites Drizzle migration journal, no historical SQL edits, seeds, backfills or customer imports. Deployment applies migrations through Sites before upload.
+
+Runtime secrets configured through native Sites tool revision2 from existing ignored local configuration. No credentials in Git/archive/browser: KSN, Zalo token + authorized group allowlist, rate salt, internal job key, tracing disabled and email addresses. Resend API key unavailable; email backup remains unconfigured. Existing group is the human-approved target; no new recipients.
+
+Build/check/migration packaging must pass before native save/deploy. Final deployment status/version/URL recorded in workspace output after completion. Existing Worker scheduled handler is preserved; confirm platform cron support separately rather than claiming it runs. Successful form submissions also invoke bounded outbox dispatch. No production synthetic lead is required to check storage readiness: use authenticated aggregate health and sanitized Zalo probe.

@@ -19,7 +19,7 @@ const localBindingConfig = {
   main: './worker.ts',
   compatibility_flags: ['nodejs_compat'],
   triggers: { crons: ['*/5 * * * *'] },
-  d1_databases: [leadDatabase, ...(d1
+  d1_databases: [leadDatabase, ...(d1 && d1 !== leadDatabase.binding
     ? [
         {
           binding: d1,
