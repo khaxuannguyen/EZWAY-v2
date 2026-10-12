@@ -1,4 +1,5 @@
 'use client';
+import { reportAnimationFailure } from '../../../lib/animation-diagnostics';
 import {useEffect,useRef,useState} from 'react';
 import {AIR_RIG as M,airFreightPose} from './air-freight-motion';
 
@@ -43,7 +44,7 @@ export function AirFreightRig(){
     const resize=()=>{const scale=Math.max(root.clientWidth/M.width,root.clientHeight/M.height);plane.style.left=`${(root.clientWidth-M.width*scale)/2}px`;plane.style.top=`${(root.clientHeight-M.height*scale)/2}px`;plane.style.transform=`scale(${scale})`;};
     const observer=new ResizeObserver(resize);observer.observe(root);resize();draw(Number(stage.dataset.progress||0));
     const onProgress=(event:Event)=>draw((event as CustomEvent<number>).detail);stage.addEventListener('freight-progress',onProgress);
-    Promise.all([...root.querySelectorAll<HTMLImageElement>('img')].map(img=>img.decode())).then(()=>{if(disposed)return;root.dataset.ready='true';stage.dataset.rigReady='true';stage.dispatchEvent(new Event('freight-rig-ready'));}).catch(()=>{if(!disposed)setFailed(true);});
+    Promise.all([...root.querySelectorAll<HTMLImageElement>('img')].map(img=>img.decode())).then(()=>{if(disposed)return;root.dataset.ready='true';stage.dataset.rigReady='true';stage.dispatchEvent(new Event('freight-rig-ready'));}).catch(()=>{if(!disposed){reportAnimationFailure(stage,'air','asset-decode');setFailed(true);}});
     return()=>{disposed=true;observer.disconnect();stage.removeEventListener('freight-progress',onProgress);delete stage.dataset.rigReady;};
   },[nearby,failed]);
   if(failed)return <div className="sea-rig-error">Hình thao tác hiện chưa tải được. Xem quy trình và liên hệ EZWAY bên dưới.</div>;

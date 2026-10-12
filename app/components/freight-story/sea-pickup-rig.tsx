@@ -1,4 +1,5 @@
 'use client';
+import { reportAnimationFailure } from '../../../lib/animation-diagnostics';
 
 import { useEffect, useRef, useState } from 'react';
 import { SEA_PICKUP as M, seaPickupPose } from './sea-pickup-motion';
@@ -75,7 +76,7 @@ export function SeaPickupRig() {
       if (disposed) return;
       root.dataset.ready = 'true'; stage.dataset.rigReady = 'true';
       stage.dispatchEvent(new Event('freight-rig-ready'));
-    }).catch(() => { if (!disposed) setFailed(true); });
+    }).catch(() => { if (!disposed) {reportAnimationFailure(stage,'sea','asset-decode');setFailed(true);} });
     return () => { disposed = true; observer.disconnect(); stage.removeEventListener('freight-progress', onProgress); delete stage.dataset.rigReady; };
   }, [nearby,failed]);
   if (failed) return <div className="sea-rig-error">Hình thao tác hiện chưa tải được. Xem quy trình và liên hệ EZWAY bên dưới.</div>;
